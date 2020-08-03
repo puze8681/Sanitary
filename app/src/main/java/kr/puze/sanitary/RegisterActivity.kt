@@ -13,11 +13,12 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun init(){
+        view_agree_register.setOnClickListener { check_register.isChecked = !check_register.isChecked }
         button_back_register.setOnClickListener { finish() }
-        button_register.setOnClickListener { register(edit_email_register.text.toString(), edit_name_register.text.toString(), edit_password_register.text.toString())}
+        button_register.setOnClickListener { register(edit_email_register.text.toString(), edit_name_register.text.toString(), edit_password_register.text.toString(), check_register.isChecked)}
     }
 
-    private fun register(email: String, name: String, password: String){
+    private fun register(email: String, name: String, password: String, isAdmin: Boolean){
         startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
     }
 }
