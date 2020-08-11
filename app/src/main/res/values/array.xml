@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="region">
+        <item>객석/객실</item>
+        <item>조리장</item>
+        <item>종사자 위생관리</item>
+        <item>화장실</item>
+        <item>영업자 의식</item>
+        <item>소비자 만족도</item>
+    </string-array>
+    <string-array name="member">
+        <item>1 명</item>
+        <item>2 명</item>
+        <item>3 명</item>
+        <item>4 명</item>
+        <item>5 명</item>
+    </string-array>
+    <string-array name="phone">
+        <item>+82</item>
+    </string-array>
+    <string-array name="folder">
+        <item>전체폴더</item>
+    </string-array>
+
+
+</resources>

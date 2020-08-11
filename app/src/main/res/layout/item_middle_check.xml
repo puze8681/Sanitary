@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/text_middle_check"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:text="1.1 작업장"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"/>
+        <ImageView
+            android:id="@+id/button_middle_check"
+            android:padding="8dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_width="56dp"
+            android:layout_height="56dp"/>
+        <CheckBox
+            android:id="@+id/check_middle_check"
+            android:text="해당없음"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/button_middle_check"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"/>
+        <TextView
+            android:id="@+id/text_score_middle_check"
+            android:layout_toLeftOf="@id/check_middle_check"
+            android:layout_toRightOf="@id/text_middle_check"
+            android:textColor="@color/colorBlack"
+            android:gravity="center|left"
+            android:text="[배점 3점]"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"/>
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_middle_check"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

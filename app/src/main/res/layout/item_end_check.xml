@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/text_end_check"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textStyle="bold"
+            android:gravity="center|left"
+            android:textColor="@color/colorBlack"
+            android:text="ㄴ1.1.1\n거미줄, 곰팡이 등이 없음"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"/>
+        <CheckBox
+            android:id="@+id/check_end_check"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:text="[배점 3점]"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"/>
+    </RelativeLayout>
+</LinearLayout>

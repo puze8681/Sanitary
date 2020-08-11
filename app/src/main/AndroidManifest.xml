@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".Store.CheckActivity"></activity>
+        <activity android:name=".Store.ResultActivity" />
+        <activity android:name=".Store.CreateStoreActivity" />
+        <activity android:name=".Setting.InformationActivity" />
+        <activity android:name=".Setting.LogActivity" />
+        <activity android:name=".Setting.PasswordChangeActivity" />
+        <activity android:name=".SettingActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LobbyActivity" />
         <activity android:name=".RegisterActivity" />

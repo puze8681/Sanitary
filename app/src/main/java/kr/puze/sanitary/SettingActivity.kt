@@ -1,8 +1,12 @@
 package kr.puze.sanitary
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_setting.*
+import kr.puze.sanitary.Setting.InformationActivity
+import kr.puze.sanitary.Setting.LogActivity
+import kr.puze.sanitary.Setting.PasswordChangeActivity
 
 class SettingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,9 +16,13 @@ class SettingActivity : AppCompatActivity() {
     }
 
     private fun init(){
-        button_password_setting.setOnClickListener {  }
-        button_information_setting.setOnClickListener {  }
-        button_log_setting.setOnClickListener {  }
-        button_logout_setting.setOnClickListener {  }
+        button_password_setting.setOnClickListener { startActivity(Intent(this@SettingActivity, PasswordChangeActivity::class.java)) }
+        button_information_setting.setOnClickListener { startActivity(Intent(this@SettingActivity, InformationActivity::class.java)) }
+        button_log_setting.setOnClickListener { startActivity(Intent(this@SettingActivity, LogActivity::class.java)) }
+        button_logout_setting.setOnClickListener { logout() }
+    }
+
+    private fun logout(){
+
     }
 }
