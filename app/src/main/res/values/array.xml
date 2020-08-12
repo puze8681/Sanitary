@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="region">
+    <string-array name="start">
         <item>객석/객실</item>
         <item>조리장</item>
         <item>종사자 위생관리</item>
@@ -8,19 +8,520 @@
         <item>영업자 의식</item>
         <item>소비자 만족도</item>
     </string-array>
-    <string-array name="member">
-        <item>1 명</item>
-        <item>2 명</item>
-        <item>3 명</item>
-        <item>4 명</item>
-        <item>5 명</item>
+    <string-array name="middle1">
+        <item>천장, 벽, 바닥의 청결상태</item>
+        <item>환기시설 등 설치 및 관리상태</item>
+        <item>창문, 창문틀, 커튼 등 관리상태</item>
+        <item>객석‧객실과의 방충, 방서 유지상태</item>
+        <item>식탁 의자 등 청결상태</item>
+        <item>음용수 관리여부</item>
+        <item>행주 및 걸레 관리상태</item>
+        <item>냅킨통, 소스통 등의 청결상태, 정리정돈 여부</item>
+        <item>(샐러드바 및 판매대 등) 식재료 보호 덮개 청결도</item>
+        <item>(샐러드바 및 판매대 등) 집기 및 주변 청결관리</item>
+        <item>(샐러드바  및 판매대 등) 메뉴별 온도관리</item>
+        <item>(샐러드바  및 판매대 등 ) 신선한 식재료 제공 여부</item>
+        <item>손소독제 및 물수건 제공여부</item>
+        <item>쓰레기통의 청결상태</item>
     </string-array>
-    <string-array name="phone">
-        <item>+82</item>
+    <string-array name="middle2">
+        <item>환풍장치의 설치 및 천장의 청결상태</item>
+        <item>후드장치의 설치 및 청결상태</item>
+        <item>조리장 내 벽, 조명장치, 채광시설의 관리상태</item>
+        <item>배수시설 및 바닥의 관리 상태</item>
+        <item>선풍기, 냉방기 등의 청결상태</item>
+        <item>식품 보관공간의 관리상태</item>
+        <item>기기, 기구, 선반 등의  위생관리</item>
+        <item>냉장·냉동고의  청결관리 등 여부</item>
+        <item>냉장·냉동고 내 식재료 보관방법 준수 및 관리 등 여부</item>
+        <item>냉동식품의 해동방법 및 보관상태</item>
+        <item>원재료, 전처리식품, 반조리식품 등의 보관상태</item>
+        <item>식재료의 개봉일자 표시 등</item>
+        <item>조리식품 등의 보관상태</item>
+        <item>원·부재료의 세척·소독여부 등</item>
+        <item>소분하여 사용하는 양념통의 위생관리 및 제품 표시 여부</item>
+        <item>식기 및 도구 등 관리상태 (객석·객실 포함)</item>
+        <item>손세척 및 소독 용품 구비여부</item>
+        <item>수족관의 청결 및 관리상태</item>
+        <item>폐기물기구 청결관리</item>
     </string-array>
-    <string-array name="folder">
-        <item>전체폴더</item>
+    <string-array name="middle3">
+        <item>위생책임자 지정여부</item>
+        <item>위생교육 실시 여부</item>
+        <item>조리자의 개인위생 및 위생복 등 관리 상태</item>
     </string-array>
-
-
+    <string-array name="middle4">
+        <item>화장실 청결상태</item>
+        <item>손세척·건조용품 등 비치</item>
+    </string-array>
+    <string-array name="middle5">
+        <item>장식용 식품 등(무 또는 천사채 등)의 위생관리 여부</item>
+        <item>건물 주위 환경 청결상태</item>
+    </string-array>
+    <string-array name="middle6">
+        <item>개방형 주방을 운영하고 있음</item>
+        <item>덜어먹는 기구 구비 여부</item>
+        <item>메뉴별 식품 알레르기 정보 게시여부</item>
+        <item>배달함의 청결도 등 관리여부</item>
+        <item>배달원의 복장상태 및 안전모 착용여부</item>
+        <item>배달음식의 기구 및 포장상태</item>
+    </string-array>
+    <string-array name="end1.1">
+        <item>- 거미줄, 곰팡이 등이 없음</item>
+        <item>- 이물, 먼지 등이 묻어있지 않고 청결함</item>
+        <item>- 천장에는 빗물이 새거나, 샌 흔적, 응결수 흔적이 없음</item>
+        <item>- 조명기구 및 주변에 먼지나 죽은 곤충이 없이 청결하게 관리됨</item>
+    </string-array>
+    <string-array name="end1.2">
+        <item>- 환기시설(환풍구, 환기구 등), 선풍기, 에어컨, 온풍기 등이 정상 작동함</item>
+        <item>- 먼지, 이물질, 찌꺼기 등이 없이 깨끗하게 청소되어 있으며 청결하게 관리되고 있음</item>
+        <item>- 사용하지 않는 기기는 먼지가 끼지 않도록 덮개 등을 씌워 보관하고 있음</item>
+    </string-array>
+    <string-array name="end1.3">
+        <item>- 창문, 창문틀, 커튼 등이 파손·훼손되어 있지 않음</item>
+        <item>- 창문, 창문틀, 커튼 등이 청결한 상태를 유지하고 있음</item>
+    </string-array>
+    <string-array name="end1.4">
+        <item>- 업소 내(객석, 객실 등)에 쥐, 바퀴벌레 등의 서식흔적이 없음</item>
+        <item>- 방충·방서의 관리를 통하여 청결한 상태를 유지하고 있음</item>
+    </string-array>
+    <string-array name="end1.5">
+        <item>- 오물, 이물질, 먼지, 얼룩 등이 없이 청결함</item>
+        <item>- 식탁 하단 부위, 의자 등이 청결함</item>
+    </string-array>
+    <string-array name="end1.6">
+        <item>- 음용수 시설(정수기, 식수대 등)은 정기적으로 점검·정비를 함</item>
+        <item>- 정수기 추출구(코크)에 이물이 없이 청결함</item>
+        <item>- 식수병이 찌그러지지 않고 얼룩 없이 청결하게 관리되고 있음</item>
+        <item>- 지하수를 식품용수 등으로 사용하는 경우 잔류 염소량을 측정하고 있음  (소독 효과를 입증하는 경우에는 다른 방법 가능)</item>
+    </string-array>
+    <string-array name="end1.7">
+        <item>- 행주와 걸레를 구분하여 보관 및 사용하고 있음</item>
+        <item>- 행주와 걸레는 청결하게 유지·관리되고 있음</item>
+    </string-array>
+    <string-array name="end1.8">
+        <item>- 냅킨통, 소스통, 양념통 등의 내·외부가 청결함</item>
+        <item>- 소스통, 양념통에 소분일자를 표시하고 있음</item>
+    </string-array>
+    <string-array name="end1.9">
+        <item>- 덮개, 진열 케이스가 구비되어 있으며 청결하게 관리되고 있음</item>
+    </string-array>
+    <string-array name="end1.10">
+        <item>- 집기는 세척·소독을 하고 있음함</item>
+        <item>- 주변은 청결하고 관리되고 있음</item>
+    </string-array>
+    <string-array name="end1.11">
+        <item>- 냉장(0~10 ℃), 냉동(-18 ℃ 이하) 또는 온장(60 ℃ 이상)이 요구되는 메뉴는 보관온도를 준수하고 있음   (*각 메뉴별 1, 판매대에 한함)</item>
+    </string-array>
+    <string-array name="end1.12">
+        <item>- 식재료가 소량씩 자주 제공됨 (샐러드바, 셀프서비스대에 한함)</item>
+    </string-array>
+    <string-array name="end1.13">
+        <item>- 손소독제를 제공하고 있음</item>
+        <item>- 청결한 물수건을 제공하고 있음</item>
+    </string-array>
+    <string-array name="end1.14">
+        <item>- 청결하게 관리하고 있음</item>
+        <item>- 객석의 쓰레기통에 덮개가 있음</item>
+    </string-array>
+    <string-array name="end2.1">
+        <item>- 환풍장치가 정상적으로 작동되고 있음</item>
+        <item>- 내부 천장에 거미줄이 없고 청결하며 파손된 곳이 없음</item>
+        <item>- 천장에는 빗물이 새거나, 이물, 먼지, 곰팡이, 응결수 등이 발생하지 않음</item>
+        <item>- 음식물을 조리하는 곳(도마 및 가스레인지 등) 위에 있는 곳은 이물질이나 먼지 등이 없이 청결함</item>
+    </string-array>
+    <string-array name="end2.2">
+        <item>- 후드장치가 정상적으로 작동되고 있음</item>
+        <item>- 응결수가 식품에 직접 떨어지지 않는 구조로 설치되어 있음</item>
+        <item>- 튀김기, 부침기 등 기름을 취급하는 기구 위 후드에 기름입자 제거용 필터가 설치되었음</item>
+        <item>- 후드내 응결수, 응집 흔적 등이 없이 청결함</item>
+        <item>- 후드장치의 외부가 청결함</item>
+    </string-array>
+    <string-array name="end2.3">
+        <item>- 벽, 조명장치, 채광시설(창문)이 파손되지 않고 잘 관리되고 있음</item>
+        <item>- 조리장의 방충 방서에 대한 시설이 구비되어 있으며 정상적으로 작동되고 있음</item>
+        <item>- 벽과 채광시설(창문)에 거미줄, 곰팡이 등이 없고 빗물이 새지 않음</item>
+        <item>- 벽, 조명장치, 채광시설(창문)이 청결하게 관리되고 있음 (채광시설에 설치되어 있는 방충망 등 포함)</item>
+    </string-array>
+    <string-array name="end2.4">
+        <item>- 배수시설 및 트렌치는 덮개가 설치되어 있음</item>
+        <item>- 바닥의 배수가 양호하여 건조한 상태가 유지됨</item>
+        <item>- 바닥은 내수처리가 되어 있어 위생적임</item>
+        <item>- 조리장 바닥에 물, 기름, 음식물 찌꺼기 등이 없이 청결함</item>
+    </string-array>
+    <string-array name="end2.5">
+        <item>- 선풍기, 에어컨, 온풍기 등에 먼지, 이물질, 찌꺼기 등이 없이 깨끗하게 청소되어 있음</item>
+        <item>- 사용하지 않는 기기는 먼지가 끼지 않도록 덮개 등을 씌워 보관하고 있음</item>
+    </string-array>
+    <string-array name="end2.6">
+        <item>- 식품보관 공간에 거미줄, 오물, 쓰레기, 이물, 곰팡이 등이 없고 청결함</item>
+        <item>- 식품의 보관상태는 깨끗하고 정리정돈이 잘 되어있음</item>
+        <item>- 식재료를 지정된 장소의 바닥에서 이격시켜 보관하고 있음</item>
+    </string-array>
+    <string-array name="end2.7">
+        <item>- 기기, 기구를 위생적으로 세척‧살균‧건조시킴</item>
+        <item>- 보관하고 있는 장소가 청결함</item>
+        <item>- 기기, 기구, 선반 등이 녹슬거나 부식된 곳이 없음</item>
+    </string-array>
+    <string-array name="end2.8">
+        <item>- 냉장·냉동고에 응결수, 성에가 없는 등 내부는 청결히 관리되고 있음</item>
+        <item>- 문의 고무 패킹이 훼손되어 있지 않고, 문 외관 등이 부식되지 않고 청결하게 관리되고 있음</item>
+    </string-array>
+    <string-array name="end2.9">
+        <item>- 익힌 음식(전처리식품, 반조리식품)은 상단에, 날 음식(원재료)은 하단에 구분하여 보관하는 등 교차오염 방지를 위한 관리를 하고 있음</item>
+        <item>- 외포장 박스를 제거 후 보관하고 있음</item>
+        <item>- 선입·선출이 가능하도록 보관·관리하고 있음</item>
+    </string-array>
+    <string-array name="end2.10">
+        <item>- 냉동식품의 해동방법을 준수하고 있음[해동방법은 냉장해동, 유수해동(흐르는 물을 이용하여 해동), 전자레인지 해동(바로 조리할 식품인 경우에 해당)]</item>
+        <item>- 해동 중인 식품은 ‘해동 중’ 등의 표시를 하고 있으며 다른 식품과 교차오염이 되지 않도록 관리</item>
+        <item>- 해동 후 바로 사용하지 않는 경우 조리 시까지 냉장 보관</item>
+        <item>- 한 번 해동한 식품의 경우 재냉동 하고 있지 않음</item>
+    </string-array>
+    <string-array name="end2.11">
+        <item>- 달걀, 두부, 생선 등을 냉장 보관하고 있음</item>
+        <item>- 전처리식품, 반조리식품은 밀폐하여 보관하고 있음</item>
+    </string-array>
+    <string-array name="end2.12">
+        <item>- 개봉 후 남은 식재료는 개봉일자를 표시하여 보관하고 있음</item>
+        <item>- 조리·반조리식품은 조리일자 또는 사용기한을 정하여 표시하여 보관하고 있음</item>
+    </string-array>
+    <string-array name="end2.13">
+        <item>- 차갑게 보관되는 조리음식은 10 ℃ 이하에서 보관하고, 따뜻하게 보관하는 조리음식은 60 ℃ 이상에서 보관함</item>
+        <item>- 보관용 용기 및 주변이 청결하게 관리되고 있음</item>
+    </string-array>
+    <string-array name="end2.14">
+        <item>- 채소·과일류는 세척·소독을 하고 있음</item>
+        <item>- 종사자는 세척·소독제의 사용법을 인지하고 있음</item>
+        <item>- 세척·소독제의 표시가 훼손되어 있지 않음</item>
+    </string-array>
+    <string-array name="end2.15">
+        <item>- 양념통의 표면이 오물이나 이물질이 묻어있지 않고 청결함</item>
+        <item>- 양념통 별로 제품명, 소분일, 유통기한 등이 표시되어있음</item>
+    </string-array>
+    <string-array name="end2.16">
+        <item>- 소독 시설 등은 정상적으로 작동하고 있으며 관리를 하고 있음</item>
+        <item>- 식재료 변경 시 교차오염 방지를 위하여 이용하는 기기는 세척 소독 등 관리를 하고 있음</item>
+        <item>- 식기 및 도구의 올바른 소독방법을 수립하고 실시하고 있음(자외선, 열탕 등)</item>
+        <item>- 식기 및 도구는 소독 후 위생적으로 보관하고 있음</item>
+        <item>- 수저통은 덮개, 뚜껑 등을 구비하고 있고 청결하게 관리하고 있음</item>
+    </string-array>
+    <string-array name="end2.17">
+        <item>- 조리장 내에 별도의 손세척·소독 시설 (또는 손소독제, 손세정제, 손건조용품 등)을 구비하고 있음</item>
+        <item>- 손세척 시설, 용품 등이 청결하게 유지·관리되고 있음</item>
+    </string-array>
+    <string-array name="end2.18">
+        <item>- 수족관이 청결하게 유지되고 있음</item>
+        <item>- 수족관의 거품제거, 정수 등의 목적으로 사용되는 물질은 식품원료 또는 식품첨가물에 적합한 것을 사용하고 있음</item>
+    </string-array>
+    <string-array name="end2.19">
+        <item>- 잔반용 쓰레기통과 일반 쓰레기통이 용도에 따라 구분 사용함</item>
+        <item>- 뚜껑이 있는 쓰레기통을 구비함</item>
+        <item>- 내수성 자재의 쓰레기통을 구비하고 파손된 곳이 없음</item>
+        <item>- 쓰레기가 넘치지 않고 쓰레기통 및 주변이 청결함</item>
+    </string-array>
+    <string-array name="end3.1">
+        <item>- 자체적으로 위생책임자를 지정하여 운영하고 있음</item>
+    </string-array>
+    <string-array name="end3.2">
+        <item>- 자체적으로 종사자를 위한 위생교육(월 1회 이상)을 실시하고 있음</item>
+        <item>- 교육실시 내용 등을 문서화하고, 책임자가 주기적으로(월 1회 이상) 확인하고 있음</item>
+    </string-array>
+    <string-array name="end3.3">
+        <item>- 조리자는 개인위생(두발, 손톱)이 청결한 상태를 유지하고 있음</item>
+        <item>- 조리자가 사용하는 위생복, 위생마스크, 장갑 등이 청결하게 보관·관리되고 있음</item>
+        <item>- 조리자는 위생복을 외출복과 구분하여 착용함</item>
+    </string-array>
+    <string-array name="end4.1">
+        <item>- 화장실은 청결하게 유지되고 있으며, 담당을 지정하여 관리하고 있음</item>
+        <item>- 화장실 내부의 환기가 적절히 되고 있음</item>
+    </string-array>
+    <string-array name="end4.2">
+        <item>- 손세척 용품 (손소독제 또는 비누 등) 구비되어 있음</item>
+        <item>- 손 건조용품(전기건조기, 티슈 등)이 구비되어 있음</item>
+    </string-array>
+    <string-array name="end5.1">
+        <item>- 장식용 식품 등(무, 천사채 등)을 재사용하지 않음</item>
+        <item>- 장식용 기구(옥돌 등)를 청결하게 유지·관리하고 있음</item>
+    </string-array>
+    <string-array name="end5.2">
+        <item>- 마당, 주차장, 현관입구 등을 포함한 건물 주변이 잘 정리 정돈되어 청결함</item>
+    </string-array>
+    <string-array name="end6.1">
+        <item>- 조리장은 손님이 그 내부를 볼 수 있는 개방형 구조로 되어 있음</item>
+        <item>- 조리장이 내부가 일부 보이는 경우 또는 내부공개용 CCTV를 설치 운영하는 경우</item>
+    </string-array>
+    <string-array name="end6.2">
+        <item>- 덜어먹을 수 있는 기구를 제공하고 있음</item>
+    </string-array>
+    <string-array name="end6.3">
+        <item>- 식품 등의 표시기준」에 따른 알레르기 유발물질을 소비자들이 쉽게 알아 볼 수 있도록 모두 표기하고 있음</item>
+    </string-array>
+    <string-array name="end6.4">
+        <item>- 외부 오염원으로부터 방지할 수 있는 덮개 등을 사용하고, 배달함 내부가 청결하게 관리되고 있음</item>
+    </string-array>
+    <string-array name="end6.5">
+        <item>- 배달을 위한 운행 시 안전모를 착용하고 복장, 안전모, 장갑 등은 위생적으로 관리하고 있음</item>
+    </string-array>
+    <string-array name="end6.6">
+        <item>- 음식의 외부노출 방지를 위한 적합한 포장상태를 유지하고 있음</item>
+    </string-array>
+    <string-array name="middleScore1">
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>3</item>
+        <item>3</item>
+        <item>5</item>
+        <item>3</item>
+        <item>3</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>3</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="middleScore2">
+        <item>5</item>
+        <item>5</item>
+        <item>4</item>
+        <item>5</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>3</item>
+        <item>6</item>
+        <item>2</item>
+        <item>3</item>
+        <item>3</item>
+        <item>6</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="middleScore3">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="middleScore4">
+        <item>2</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="middleScore5">
+        <item>3</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="middleScore6">
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.1">
+        <item>2</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.2">
+        <item>2</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.3">
+        <item>3</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore1.4">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.5">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.6">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore1.7">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.8">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore1.9">
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.10">
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.11">
+        <item>3</item>
+    </string-array>
+    <string-array name="endScore1.12">
+        <item>3</item>
+    </string-array>
+    <string-array name="endScore1.13">
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore1.14">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.1">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore2.2">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.3">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.4">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore2.5">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.6">
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.7">
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.8">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.9">
+        <item>2</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.10">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.11">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore2.12">
+        <item>3</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="endScore2.13">
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.14">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.15">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore2.16">
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.17">
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore2.18">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore2.19">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore3.1">
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore3.2">
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore3.3">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore4.1">
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore4.2">
+        <item>1</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore5.1">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore5.2">
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore6.1">
+        <item>2</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore6.2">
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore6.3">
+        <item>2</item>
+    </string-array>
+    <string-array name="endScore6.4">
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore6.5">
+        <item>1</item>
+    </string-array>
+    <string-array name="endScore6.6">
+        <item>1</item>
+    </string-array>
 </resources>

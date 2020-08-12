@@ -7,12 +7,14 @@ data class MiddleCheckData(
     var index: String?,
     var text: String?,
     var totalScore: Int,
+    var noApplicable: Boolean,
     var endList: ArrayList<EndCheckData>?
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString(),
         source.readString(),
         source.readInt(),
+        1 == source.readInt(),
         source.createTypedArrayList(EndCheckData.CREATOR)
     )
 
@@ -22,6 +24,7 @@ data class MiddleCheckData(
         writeString(index)
         writeString(text)
         writeInt(totalScore)
+        writeInt((if (noApplicable) 1 else 0))
         writeTypedList(endList)
     }
 

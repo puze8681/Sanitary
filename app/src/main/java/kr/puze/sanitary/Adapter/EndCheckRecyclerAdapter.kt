@@ -30,11 +30,7 @@ class EndCheckRecyclerAdapter(var items: ArrayList<EndCheckData>, var context: C
             itemView.text_end_check.text = "ㄴ${item.index}.${position+1}\n${item.text}"
             itemView.check_end_check.text = "[배점 ${item.score}점]"
             itemView.check_end_check.setOnClickListener {
-                if(itemView.check_end_check.isChecked){
-
-                }else{
-
-                }
+                item.isChecked = itemView.check_end_check.isChecked
             }
         }
     }
@@ -43,13 +39,5 @@ class EndCheckRecyclerAdapter(var items: ArrayList<EndCheckData>, var context: C
 
     interface ItemClick {
         fun onItemClick(view: View?, position: Int)
-    }
-
-    private fun mandate(memberId: String){
-
-    }
-
-    private fun exile(memberId: String){
-
     }
 }

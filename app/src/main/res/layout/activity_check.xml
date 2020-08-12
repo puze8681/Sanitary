@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
         <ImageView
-            android:id="@+id/button_"
+            android:id="@+id/button_check"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_create"
             android:padding="8dp"

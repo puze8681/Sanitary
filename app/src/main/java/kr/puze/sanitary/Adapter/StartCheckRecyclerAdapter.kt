@@ -49,7 +49,7 @@ class StartCheckRecyclerAdapter(var items: ArrayList<StartCheckData>, var contex
         private fun getEndData(items: ArrayList<MiddleCheckData>, view: View){
             middleArray.clear()
             for (item in items){
-                middleArray.add(MiddleCheckData(item.index, item.text, item.totalScore, item.endList))
+                middleArray.add(MiddleCheckData(item.index, item.text, item.totalScore, item.noApplicable, item.endList))
             }
             setRecyclerView(view, middleArray)
         }
@@ -69,13 +69,5 @@ class StartCheckRecyclerAdapter(var items: ArrayList<StartCheckData>, var contex
 
     interface ItemClick {
         fun onItemClick(view: View?, position: Int)
-    }
-
-    private fun mandate(memberId: String){
-
-    }
-
-    private fun exile(memberId: String){
-
     }
 }

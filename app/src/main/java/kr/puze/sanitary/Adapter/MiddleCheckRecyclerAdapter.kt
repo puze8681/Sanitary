@@ -34,7 +34,8 @@ class MiddleCheckRecyclerAdapter(var items: ArrayList<MiddleCheckData>, var cont
             itemView.text_middle_check.text = "${item.index}.${position + 1} ${item.text}"
             itemView.text_score_middle_check.text = "[배점 ${item.totalScore}점"
             itemView.check_middle_check.setOnClickListener {
-                if(itemView.check_middle_check.isChecked){
+                item.noApplicable = itemView.check_middle_check.isChecked
+                if(item.noApplicable){
                     itemView.recycler_middle_check.visibility = View.GONE
                 }else{
                     itemView.recycler_middle_check.visibility = View.VISIBLE
@@ -76,13 +77,5 @@ class MiddleCheckRecyclerAdapter(var items: ArrayList<MiddleCheckData>, var cont
 
     interface ItemClick {
         fun onItemClick(view: View?, position: Int)
-    }
-
-    private fun mandate(memberId: String){
-
-    }
-
-    private fun exile(memberId: String){
-
     }
 }

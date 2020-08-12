@@ -38,12 +38,4 @@ class LogRecyclerAdapter(var items: ArrayList<LogData>, var context: Context) : 
     interface ItemClick {
         fun onItemClick(view: View?, position: Int)
     }
-
-    private fun mandate(memberId: String){
-
-    }
-
-    private fun exile(memberId: String){
-
-    }
 }

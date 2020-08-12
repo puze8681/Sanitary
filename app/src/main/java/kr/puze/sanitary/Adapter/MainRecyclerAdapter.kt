@@ -44,12 +44,4 @@ class MainRecyclerAdapter(var items: ArrayList<StoreData>, var context: Context)
     interface ItemClick {
         fun onItemClick(view: View?, position: Int)
     }
-
-    private fun mandate(memberId: String){
-
-    }
-
-    private fun exile(memberId: String){
-
-    }
 }
