@@ -5,6 +5,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <View
+        android:background="#8C7D7D7D"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <RelativeLayout
         android:background="#fff"
         android:layout_width="match_parent"
@@ -13,12 +17,15 @@
             android:id="@+id/text_middle_check"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@id/text_score_middle_check"
             android:textStyle="bold"
-            android:gravity="center"
+            android:gravity="center|left"
             android:textColor="@color/colorBlack"
             android:text="1.1 작업장"
+            android:minHeight="56dp"
             android:layout_width="wrap_content"
-            android:layout_height="56dp"/>
+            android:layout_height="wrap_content"/>
         <ImageView
             android:id="@+id/button_middle_check"
             android:padding="8dp"
@@ -36,10 +43,9 @@
         <TextView
             android:id="@+id/text_score_middle_check"
             android:layout_toLeftOf="@id/check_middle_check"
-            android:layout_toRightOf="@id/text_middle_check"
             android:textColor="@color/colorBlack"
             android:gravity="center|left"
-            android:text="[배점 3점]"
+            android:text="[총점 3점]"
             android:layout_width="wrap_content"
             android:layout_height="56dp"/>
     </RelativeLayout>

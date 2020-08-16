@@ -7,7 +7,6 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.puze.sanitary.Adapter.MainRecyclerAdapter
 import kr.puze.sanitary.Data.StoreData
-import kr.puze.sanitary.Store.CheckActivity
 import kr.puze.sanitary.Store.CreateStoreActivity
 
 class MainActivity : AppCompatActivity() {
@@ -24,9 +23,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init(){
+        setCount(mainArray.size)
         button_add_store_main.setOnClickListener { startActivity(Intent(this@MainActivity, CreateStoreActivity::class.java)) }
         button_setting_main.setOnClickListener { startActivity(Intent(this@MainActivity, SettingActivity::class.java)) }
         getStoreData()
+    }
+
+    private fun setCount(count: Int){
+        text_count_main.text = "전체 ${count}개의 점검내역이 있습니다."
     }
 
     private fun getStoreData(){
@@ -38,12 +42,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setStoreRecyclerView(mainArray: ArrayList<StoreData>){
+        setCount(mainArray.size)
         mainAdapter = MainRecyclerAdapter(mainArray, this@MainActivity)
         recycler_main.adapter = mainAdapter
         (recycler_main.adapter as MainRecyclerAdapter).notifyDataSetChanged()
         mainAdapter.itemClick = object : MainRecyclerAdapter.ItemClick {
             override fun onItemClick(view: View?, position: Int) {
-                startActivity(Intent(this@MainActivity, CheckActivity::class.java).putExtra("title", mainArray[position].title))
             }
         }
     }

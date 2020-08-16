@@ -6,13 +6,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Store.CheckActivity">
+    tools:context=".Store.CheckNormalActivity">
     <RelativeLayout
         android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="56dp">
         <ImageView
-            android:id="@+id/button_back_check"
+            android:id="@+id/button_back_check_normal"
             android:layout_alignParentLeft="true"
             android:src="@drawable/ic_arrow_left"
             android:padding="8dp"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
         <ImageView
-            android:id="@+id/button_check"
+            android:id="@+id/button_check_normal"
             android:layout_alignParentRight="true"
             android:src="@drawable/ic_create"
             android:padding="8dp"
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
     <TextView
-        android:id="@+id/text_title_check"
+        android:id="@+id/text_title_check_normal"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:textSize="18sp"
@@ -53,8 +53,40 @@
         android:background="#7d7d7d"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
+    <LinearLayout
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <TextView
+            android:id="@+id/text_total_score_check_normal"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:text="총점: 100"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+        <View
+            android:background="#7d7d7d"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/text_score_check_normal"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:text="점수: 0점"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <View
+        android:background="#7d7d7d"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_check"
+        android:id="@+id/recycler_check_normal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

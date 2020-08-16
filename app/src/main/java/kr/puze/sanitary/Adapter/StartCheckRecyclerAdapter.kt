@@ -32,7 +32,7 @@ class StartCheckRecyclerAdapter(var items: ArrayList<StartCheckData>, var contex
         lateinit var middleAdapter: MiddleCheckRecyclerAdapter
 
         fun bind(item: StartCheckData, position: Int) {
-            itemView.text_start_check.text = "${position + 1} ${item.text}\""
+            itemView.text_start_check.text = "${position + 1}. ${item.text}"
             itemView.button_start_check.setOnClickListener {
                 isDrop = !isDrop
                 if(isDrop){
@@ -43,25 +43,26 @@ class StartCheckRecyclerAdapter(var items: ArrayList<StartCheckData>, var contex
                     itemView.button_start_check.setImageResource(R.drawable.ic_arrow_right)
                 }
             }
-            getEndData(item.middleList!!, itemView)
+            getMiddleData(position, item.middleList!!, itemView)
         }
 
-        private fun getEndData(items: ArrayList<MiddleCheckData>, view: View){
+        private fun getMiddleData(position: Int, items: ArrayList<MiddleCheckData>, view: View){
             middleArray.clear()
             for (item in items){
                 middleArray.add(MiddleCheckData(item.index, item.text, item.totalScore, item.noApplicable, item.endList))
             }
-            setRecyclerView(view, middleArray)
+            setRecyclerView(position, view, middleArray)
         }
 
-        private fun setRecyclerView(view: View, middleArray: ArrayList<MiddleCheckData>){
-            middleAdapter = MiddleCheckRecyclerAdapter(middleArray, context)
+        private fun setRecyclerView(position: Int, view: View, middleArray: ArrayList<MiddleCheckData>){
+            middleAdapter = MiddleCheckRecyclerAdapter(position, middleArray, context)
             view.recycler_start_check.adapter = middleAdapter
             (view.recycler_start_check.adapter as MiddleCheckRecyclerAdapter).notifyDataSetChanged()
             middleAdapter.itemClick = object : MiddleCheckRecyclerAdapter.ItemClick {
                 override fun onItemClick(view: View?, position: Int) {
                 }
             }
+            view.recycler_start_check.visibility = View.GONE
         }
     }
 

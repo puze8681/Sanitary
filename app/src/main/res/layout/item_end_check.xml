@@ -5,20 +5,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <View
+        android:background="#8C7D7D7D"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <RelativeLayout
         android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
             android:id="@+id/text_end_check"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@id/check_end_check"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:textStyle="bold"
             android:gravity="center|left"
             android:textColor="@color/colorBlack"
             android:text="ㄴ1.1.1\n거미줄, 곰팡이 등이 없음"
+            android:minHeight="56dp"
             android:layout_width="wrap_content"
-            android:layout_height="56dp"/>
+            android:layout_height="wrap_content"/>
         <CheckBox
             android:id="@+id/check_end_check"
             android:layout_marginRight="16dp"

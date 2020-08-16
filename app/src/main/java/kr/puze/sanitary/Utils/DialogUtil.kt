@@ -1,11 +1,13 @@
 package www.okit.co.Utils
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.view.Window
+import kotlinx.android.synthetic.main.dialog_no.*
 import kr.puze.sanitary.R
 
 @Suppress("DEPRECATION")
@@ -20,18 +22,15 @@ class DialogUtil(context: Context) {
     }
 
     @SuppressLint("SetTextI18n")
-    fun dialogInfo(info: String) {
+    fun dialogNo(activity: Activity) {
         val dialog = Dialog(context)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.activity_splash)
-//        dialog.text_dialog_edit_info.text = "$info 개의\n발자국이 확인 되었습니다."
-//        dialog.show()
-//
-//        dialog.button_left_dialog_info.setOnClickListener {
-//            dialog.dismiss()
-//        }
-//        dialog.button_right_dialog_info.setOnClickListener {
-//            dialog.dismiss()
-//        }
+        dialog.setContentView(R.layout.dialog_no)
+        dialog.button_cancel_no.setOnClickListener { dialog.dismiss() }
+        dialog.button_check_no.setOnClickListener {
+            dialog.dismiss()
+            activity.finish()
+        }
+        dialog.show()
     }
 }

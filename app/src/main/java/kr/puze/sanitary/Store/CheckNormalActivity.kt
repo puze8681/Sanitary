@@ -3,53 +3,65 @@ package kr.puze.sanitary.Store
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_check.*
+import android.widget.TextView
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_check_normal.*
 import kr.puze.sanitary.Adapter.StartCheckRecyclerAdapter
 import kr.puze.sanitary.Data.EndCheckData
 import kr.puze.sanitary.Data.MiddleCheckData
 import kr.puze.sanitary.Data.StartCheckData
 import kr.puze.sanitary.R
-import www.okit.co.Utils.ToastUtil
+import kotlin.math.roundToInt
 
-class CheckActivity : AppCompatActivity() {
+class CheckNormalActivity : AppCompatActivity() {
 
     companion object{
         lateinit var startAdapter: StartCheckRecyclerAdapter
         val startArray = ArrayList<StartCheckData>()
+        lateinit var totalTextView: TextView
+        lateinit var scoreTextView: TextView
+        var totalScore = 0
+        var score = 0
+        var storeId = ""
+        var storeTitle = ""
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_check)
+        setContentView(R.layout.activity_check_normal)
 
         init()
     }
 
     private fun init(){
-        title = intent.getStringExtra("title")
-        text_title_check.text = title
+        totalTextView = text_total_score_check_normal
+        scoreTextView = text_score_check_normal
+        storeId = intent.getStringExtra("storeId")
+        storeTitle = intent.getStringExtra("title")
+        text_title_check_normal.text = storeTitle
 
-        button_back_check.setOnClickListener { finish() }
+        button_back_check_normal.setOnClickListener { finish() }
 
         getEndData()
     }
 
     private fun setRecyclerView(startArray: ArrayList<StartCheckData>){
-        startAdapter = StartCheckRecyclerAdapter(startArray, this@CheckActivity)
-        recycler_check.adapter = startAdapter
-        (recycler_check.adapter as StartCheckRecyclerAdapter).notifyDataSetChanged()
+        startAdapter = StartCheckRecyclerAdapter(startArray, this@CheckNormalActivity)
+        recycler_check_normal.adapter = startAdapter
+        (recycler_check_normal.adapter as StartCheckRecyclerAdapter).notifyDataSetChanged()
         startAdapter.itemClick = object : StartCheckRecyclerAdapter.ItemClick {
             override fun onItemClick(view: View?, position: Int) {
             }
         }
-        button_check.setOnClickListener { check() }
+        button_check_normal.setOnClickListener { submit() }
+        check()
     }
 
     private fun getEndData(){
         val startItems = resources.getStringArray(R.array.start)
         for (i in startItems.indices){
             val middleArray = ArrayList<MiddleCheckData>()
-            val middleItems = when(i){
+            val middleItems = when(i+1){
                 1->{ resources.getStringArray(R.array.middle1)}
                 2->{ resources.getStringArray(R.array.middle2)}
                 3->{ resources.getStringArray(R.array.middle3)}
@@ -58,7 +70,7 @@ class CheckActivity : AppCompatActivity() {
                 6->{ resources.getStringArray(R.array.middle6)}
                 else -> { resources.getStringArray(R.array.middle1)}
             }
-            val middleScoreItems = when(i){
+            val middleScoreItems = when(i+1){
                 1->{ resources.getStringArray(R.array.middleScore1)}
                 2->{ resources.getStringArray(R.array.middleScore2)}
                 3->{ resources.getStringArray(R.array.middleScore3)}
@@ -204,20 +216,28 @@ class CheckActivity : AppCompatActivity() {
                     else -> { resources.getStringArray(R.array.endScore1_1)}
                 }
                 for (k in endItems.indices){
-                    endArray.add(EndCheckData("${i+1}.${j+1}.${k+1}", endItems[i], endScoreItems[i].toInt(), false))
+                    endArray.add(EndCheckData("${i+1}.${j+1}.${k+1}", endItems[k], endScoreItems[k].toInt(), false))
                 }
-                middleArray.add(MiddleCheckData("${i+1}.${j+1}", middleItems[i], middleScoreItems[i].toInt(), false, endArray))
+                middleArray.add(MiddleCheckData("${i+1}.${j+1}", middleItems[j], middleScoreItems[j].toInt(), false, endArray))
             }
-
-            startArray.add(StartCheckData(startItems[0], middleArray))
-            startItems[0]
+            startArray.add(StartCheckData(startItems[i], middleArray))
         }
         setRecyclerView(startArray)
     }
 
-    fun check() {
-        var totalScore = 0
-        var score = 0
+    fun changeMiddle(sIndex: Int, mIndex: Int, noApplicable: Boolean){
+        startArray[sIndex].middleList!![mIndex].noApplicable = noApplicable
+        check()
+    }
+
+    fun changeEnd(sIndex: Int, mIndex: Int, eIndex: Int, isChecked: Boolean){
+        startArray[sIndex].middleList!![mIndex].endList!![eIndex].isChecked = isChecked
+        check()
+    }
+
+    private fun check() {
+        totalScore = 0
+        score = 0
         for (i in startArray.indices) {
             for(j in startArray[i].middleList!!.indices) {
                 if(!startArray[i].middleList!![j].noApplicable){
@@ -230,6 +250,19 @@ class CheckActivity : AppCompatActivity() {
                 }
             }
         }
-        ToastUtil(this@CheckActivity).short("총점: $totalScore\n점수: $score")
+
+        totalTextView.text = "총점: $totalScore"
+        scoreTextView.text = "총점: $score"
+    }
+
+    private fun submit(){
+        val submitScore = ((score.toDouble() / totalScore.toDouble()) * 100).roundToInt()
+        val grade = when (submitScore){
+            in 90 .. 100 -> 1
+            in 85 until 90 -> 2
+            in 80 until 85 -> 3
+            else -> 4
+        }
+        Toast.makeText(this@CheckNormalActivity, "$submitScore, $grade", Toast.LENGTH_SHORT).show()
     }
 }

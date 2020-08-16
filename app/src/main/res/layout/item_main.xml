@@ -7,6 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 <!--    날짜 점포명 주소 연락처-->
+    <View
+        android:background="#8C7D7D7D"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
     <LinearLayout
         android:padding="8dp"
         android:orientation="vertical"

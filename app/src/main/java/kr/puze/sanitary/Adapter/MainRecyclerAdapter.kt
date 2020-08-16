@@ -10,7 +10,8 @@ import kotlinx.android.synthetic.main.item_main.view.*
 import kr.puze.sanitary.Data.StoreData
 import kr.puze.sanitary.R
 import kr.puze.sanitary.Setting.LogActivity
-import kr.puze.sanitary.Store.CreateStoreActivity
+import kr.puze.sanitary.Store.CheckBasicActivity
+import kr.puze.sanitary.Store.CheckNormalActivity
 
 class MainRecyclerAdapter(var items: ArrayList<StoreData>, var context: Context) : RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,7 +25,7 @@ class MainRecyclerAdapter(var items: ArrayList<StoreData>, var context: Context)
         }
 
         holder.itemView.button_result_main.setOnClickListener { context.startActivity(Intent(context.applicationContext, LogActivity::class.java)) }
-        holder.itemView.button_check_main.setOnClickListener { context.startActivity(Intent(context.applicationContext, CreateStoreActivity::class.java).putExtra("storeId", items[position].storeId)) }
+        holder.itemView.button_check_main.setOnClickListener { context.startActivity(Intent(context.applicationContext, CheckBasicActivity::class.java).putExtra("storeId", items[position].storeId).putExtra("title", items[position].title)) }
     }
 
     override fun getItemCount(): Int = items.size

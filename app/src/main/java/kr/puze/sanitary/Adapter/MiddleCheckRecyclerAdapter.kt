@@ -9,14 +9,15 @@ import kotlinx.android.synthetic.main.item_middle_check.view.*
 import kr.puze.sanitary.Data.EndCheckData
 import kr.puze.sanitary.Data.MiddleCheckData
 import kr.puze.sanitary.R
+import kr.puze.sanitary.Store.CheckNormalActivity
 
-class MiddleCheckRecyclerAdapter(var items: ArrayList<MiddleCheckData>, var context: Context) : RecyclerView.Adapter<MiddleCheckRecyclerAdapter.ViewHolder>() {
+class MiddleCheckRecyclerAdapter(var sIndex: Int, var items: ArrayList<MiddleCheckData>, var context: Context) : RecyclerView.Adapter<MiddleCheckRecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_middle_check, null))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position], position)
+        holder.bind(items[position], position, sIndex)
         holder.itemView.setOnClickListener {
             itemClick?.onItemClick(holder.itemView, position)
         }
@@ -28,18 +29,24 @@ class MiddleCheckRecyclerAdapter(var items: ArrayList<MiddleCheckData>, var cont
         val context = itemView.context!!
         private var isDrop = false
         private var endArray: ArrayList<EndCheckData> = ArrayList()
+        private var nullArray: ArrayList<EndCheckData> = ArrayList()
         lateinit var endAdapter: EndCheckRecyclerAdapter
 
-        fun bind(item: MiddleCheckData, position: Int) {
-            itemView.text_middle_check.text = "${item.index}.${position + 1} ${item.text}"
-            itemView.text_score_middle_check.text = "[배점 ${item.totalScore}점"
+        fun bind(item: MiddleCheckData, position: Int, sIndex: Int) {
+            itemView.text_middle_check.text = "${item.index}\n${item.text}"
+            itemView.text_score_middle_check.text = "[총점 ${item.totalScore}점]"
             itemView.check_middle_check.setOnClickListener {
                 item.noApplicable = itemView.check_middle_check.isChecked
                 if(item.noApplicable){
+                    itemView.button_middle_check.setImageResource(R.drawable.ic_arrow_right)
+                    itemView.button_middle_check.isClickable = false
                     itemView.recycler_middle_check.visibility = View.GONE
                 }else{
+                    itemView.button_middle_check.setImageResource(R.drawable.ic_arrow_down)
+                    itemView.button_middle_check.isClickable = true
                     itemView.recycler_middle_check.visibility = View.VISIBLE
                 }
+                setScore(sIndex, position, item.noApplicable)
             }
             itemView.button_middle_check.setOnClickListener {
                 isDrop = !isDrop
@@ -50,26 +57,32 @@ class MiddleCheckRecyclerAdapter(var items: ArrayList<MiddleCheckData>, var cont
                     itemView.recycler_middle_check.visibility = View.GONE
                     itemView.button_middle_check.setImageResource(R.drawable.ic_arrow_right)
                 }
+                setScore(sIndex, position, item.noApplicable)
             }
-            getEndData(item.endList!!, itemView)
+            getEndData(sIndex, position, item.endList!!, itemView)
         }
 
-        private fun getEndData(items: ArrayList<EndCheckData>, view: View){
+        private fun getEndData(sIndex: Int, mIndex: Int, items: ArrayList<EndCheckData>, view: View){
             endArray.clear()
             for (item in items){
                 endArray.add(EndCheckData(item.index, item.text, item.score, item.isChecked))
             }
-            setRecyclerView(view, endArray)
+            setRecyclerView(sIndex, mIndex, view, endArray)
         }
 
-        private fun setRecyclerView(view: View, endArray: ArrayList<EndCheckData>){
-            endAdapter = EndCheckRecyclerAdapter(endArray, context)
+        private fun setRecyclerView(sIndex: Int, mIndex: Int, view: View, endArray: ArrayList<EndCheckData>){
+            endAdapter = EndCheckRecyclerAdapter(sIndex, mIndex, endArray, context)
             view.recycler_middle_check.adapter = endAdapter
             (view.recycler_middle_check.adapter as EndCheckRecyclerAdapter).notifyDataSetChanged()
             endAdapter.itemClick = object : EndCheckRecyclerAdapter.ItemClick {
                 override fun onItemClick(view: View?, position: Int) {
                 }
             }
+            view.recycler_middle_check.visibility = View.GONE
+        }
+
+        private fun setScore(sIndex: Int, mIndex: Int, noApplicable: Boolean){
+            CheckNormalActivity().changeMiddle(sIndex, mIndex, noApplicable)
         }
     }
 

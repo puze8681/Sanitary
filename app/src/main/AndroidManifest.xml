@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Store.CheckActivity"></activity>
+        <activity android:name=".Store.CheckCommonActivity"></activity>
+        <activity android:name=".Store.CheckBasicActivity" />
+        <activity android:name=".Store.CheckNormalActivity" />
         <activity android:name=".Store.ResultActivity" />
         <activity android:name=".Store.CreateStoreActivity" />
         <activity android:name=".Setting.InformationActivity" />
