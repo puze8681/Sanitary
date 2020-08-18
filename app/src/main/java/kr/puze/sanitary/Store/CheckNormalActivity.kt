@@ -1,5 +1,6 @@
 package kr.puze.sanitary.Store
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -256,13 +257,12 @@ class CheckNormalActivity : AppCompatActivity() {
     }
 
     private fun submit(){
-        val submitScore = ((score.toDouble() / totalScore.toDouble()) * 100).roundToInt()
-        val grade = when (submitScore){
-            in 90 .. 100 -> 1
-            in 85 until 90 -> 2
-            in 80 until 85 -> 3
-            else -> 4
-        }
-        Toast.makeText(this@CheckNormalActivity, "$submitScore, $grade", Toast.LENGTH_SHORT).show()
+        val submitScore = ((score.toDouble() / totalScore.toDouble()) * 100)
+        startActivity(
+            Intent(this@CheckNormalActivity, CheckCommonActivity::class.java)
+                .putExtra("storeId", storeId)
+                .putExtra("title", storeTitle)
+                .putExtra("score", submitScore))
+
     }
 }
