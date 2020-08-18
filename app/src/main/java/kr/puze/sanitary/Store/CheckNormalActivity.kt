@@ -18,9 +18,9 @@ class CheckNormalActivity : AppCompatActivity() {
 
     companion object{
         lateinit var startAdapter: StartCheckRecyclerAdapter
-        val startArray = ArrayList<StartCheckData>()
         lateinit var totalTextView: TextView
         lateinit var scoreTextView: TextView
+        val startArray = ArrayList<StartCheckData>()
         var totalScore = 0
         var score = 0
         var storeId = ""
@@ -59,6 +59,7 @@ class CheckNormalActivity : AppCompatActivity() {
     }
 
     private fun getEndData(){
+        startArray.clear()
         val startItems = resources.getStringArray(R.array.start)
         for (i in startItems.indices){
             val middleArray = ArrayList<MiddleCheckData>()

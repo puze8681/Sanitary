@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_log.view.*
 import kr.puze.sanitary.Data.LogData
 import kr.puze.sanitary.R
+import kr.puze.sanitary.Store.CheckCommonActivity
+import kotlin.math.roundToInt
 
 class LogRecyclerAdapter(var items: ArrayList<LogData>, var context: Context) : RecyclerView.Adapter<LogRecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,7 +32,13 @@ class LogRecyclerAdapter(var items: ArrayList<LogData>, var context: Context) : 
             itemView.text_title_log.text = item.title
             itemView.text_date_log.text = item.date
             var fitness = if(item.score >= 80) "적합" else "부적합"
-            itemView.text_description_log.text = "${item.grade} / ${item.score} / $fitness"
+            val grade = when (item.score){
+                in 90 .. 100 -> "매우 우수"
+                in 85 until 90 -> "우수"
+                in 80 until 85 -> "좋음"
+                else -> "부적합"
+            }
+            itemView.text_description_log.text = "$grade / ${item.score} / $fitness"
             itemView.button_delete_log.setOnClickListener {  }
             itemView.button_result_log.setOnClickListener {  }
         }

@@ -6,12 +6,10 @@ import android.os.Parcelable
 data class LogData(
     var title: String?,
     var date: String?,
-    var grade: String?,
     var score: Int,
     var id: String?
 ) : Parcelable {
     constructor(source: Parcel) : this(
-        source.readString(),
         source.readString(),
         source.readString(),
         source.readInt(),
@@ -23,7 +21,6 @@ data class LogData(
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
         writeString(title)
         writeString(date)
-        writeString(grade)
         writeInt(score)
         writeString(id)
     }
