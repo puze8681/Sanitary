@@ -1,18 +1,17 @@
 package kr.puze.sanitary.Adapter
 
 import android.content.Context
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_log.view.*
-import kr.puze.sanitary.Data.LogData
+import kotlinx.android.synthetic.main.item_info.view.*
+import kr.puze.sanitary.Data.InfoData
 import kr.puze.sanitary.R
 
-class LogRecyclerAdapter(var items: ArrayList<LogData>, var context: Context) : RecyclerView.Adapter<LogRecyclerAdapter.ViewHolder>() {
+class InfoRecyclerAdapter(var items: ArrayList<InfoData>, var context: Context) : RecyclerView.Adapter<InfoRecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_log, null))
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_info, null))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -26,13 +25,12 @@ class LogRecyclerAdapter(var items: ArrayList<LogData>, var context: Context) : 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val context = itemView.context!!
-        fun bind(item: LogData, position: Int) {
-            itemView.text_title_log.text = item.title
-            itemView.text_date_log.text = item.date
-            var fitness = if(item.score >= 80) "적합" else "부적합"
-            itemView.text_description_log.text = "${item.grade} / ${item.score} / $fitness"
-            itemView.button_delete_log.setOnClickListener {  }
-            itemView.button_result_log.setOnClickListener {  }
+        fun bind(item: InfoData, position: Int) {
+            itemView.text_title_info.text = item.title
+            itemView.text_address_info.text = item.address
+            itemView.text_name_info.text = item.name
+            itemView.button_delete_info.setOnClickListener {  }
+            itemView.button_result_info.setOnClickListener {  }
         }
     }
 

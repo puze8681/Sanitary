@@ -16,8 +16,8 @@
         android:layout_width="128dp"
         android:layout_height="128dp"/>
     <TextView
-        android:text="발바닥"
-        android:textColor="@color/colorPrimary"
+        android:text="위생등급제"
+        android:textColor="#4C8FFF"
         android:textStyle="bold"
         android:textSize="36sp"
         android:layout_marginTop="16dp"

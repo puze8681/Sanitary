@@ -34,7 +34,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="28dp"
             android:text="이메일과 패스워드를 입력해 주세요."
-            android:textColor="@color/colorPrimary"
+            android:textColor="#4C8FFF"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -171,7 +171,7 @@
             <CheckBox
                 android:id="@+id/check_register"
                 android:gravity="center"
-                android:buttonTint="@color/colorPrimary"
+                android:buttonTint="#4C8FFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView

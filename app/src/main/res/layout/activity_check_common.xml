@@ -68,21 +68,25 @@
                     android:layout_height="56dp"/>
                 <CheckBox
                     android:id="@+id/check_1_1_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="30년 이상 (2점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <CheckBox
                     android:id="@+id/check_1_2_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="20 ~ 30년 (1.5점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <CheckBox
                     android:id="@+id/check_1_3_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="10 ~ 20년 (1점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <CheckBox
                     android:id="@+id/check_1_4_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="5 ~ 10년 (0.5점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -105,6 +109,7 @@
                     android:layout_height="72dp"/>
                 <CheckBox
                     android:id="@+id/check_2_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="고용 여부 있음 (1점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -126,16 +131,19 @@
                     android:layout_height="56dp"/>
                 <CheckBox
                     android:id="@+id/check_3_1_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="10년 이상 (1점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <CheckBox
                     android:id="@+id/check_3_2_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="5년 이상 (0.8점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <CheckBox
                     android:id="@+id/check_3_3_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="3년 이상 (0.4점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -158,6 +166,7 @@
                     android:layout_height="72dp"/>
                 <CheckBox
                     android:id="@+id/check_4_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="개인위생 (각 1점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -180,6 +189,7 @@
                     android:layout_height="72dp"/>
                 <CheckBox
                     android:id="@+id/check_5_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="객석/객실 ‧ 조리장위생 (1점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -202,6 +212,7 @@
                     android:layout_height="72dp"/>
                 <CheckBox
                     android:id="@+id/check_6_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="구비 여부 있음 (1점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -224,6 +235,7 @@
                     android:layout_height="72dp"/>
                 <CheckBox
                     android:id="@+id/check_7_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="흔적 있음 (-1점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -246,6 +258,7 @@
                     android:layout_height="72dp"/>
                 <CheckBox
                     android:id="@+id/check_8_common"
+                    android:buttonTint="#4C8FFF"
                     android:text="허용 (-1점)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
