@@ -3,9 +3,16 @@ package kr.puze.sanitary.Store
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_check_common.*
+import kr.puze.sanitary.Data.LogData
+import kr.puze.sanitary.Data.StoreData
 import kr.puze.sanitary.R
 import www.okit.co.Utils.DialogUtil
+import www.okit.co.Utils.PrefUtil
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.math.roundToInt
 
 class CheckCommonActivity : AppCompatActivity() {
@@ -14,7 +21,7 @@ class CheckCommonActivity : AppCompatActivity() {
         var storeId = ""
         var storeTitle = ""
         var score = 0.0
-
+        lateinit var prefUtil: PrefUtil
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +31,7 @@ class CheckCommonActivity : AppCompatActivity() {
     }
 
     private fun init(){
+        prefUtil = PrefUtil(this@CheckCommonActivity)
         storeId = intent.getStringExtra("storeId")
         storeTitle = intent.getStringExtra("title")
         score = intent.getDoubleExtra("score", 0.0)
@@ -39,6 +47,7 @@ class CheckCommonActivity : AppCompatActivity() {
                 in 80 until 85 -> "좋음"
                 else -> "부적합"
             }
+            setLog(storeTitle, getDate(), submitScore, storeId)
             DialogUtil(this@CheckCommonActivity).dialogSubmit(this@CheckCommonActivity, score, score(), submitScore, grade)
         }
 
@@ -49,6 +58,18 @@ class CheckCommonActivity : AppCompatActivity() {
         check_3_1_common.setOnClickListener { check_3_2_common.isChecked = false; check_3_3_common.isChecked = false; }
         check_3_2_common.setOnClickListener { check_3_1_common.isChecked = false; check_3_3_common.isChecked = false; }
         check_3_3_common.setOnClickListener { check_3_2_common.isChecked = false; check_3_1_common.isChecked = false; }
+    }
+
+    private fun setLog(title: String, date: String, score: Int, id: String){
+        val log = LogData(title, date, score, id)
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val reference: DatabaseReference = database.getReference("Logs")
+        reference.child(prefUtil.userUid).setValue(log)
+        finish()
+    }
+
+    private fun getDate(): String{
+        return SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault()).format(Calendar.getInstance().timeInMillis)
     }
 
     private fun score(): Double{

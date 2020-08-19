@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "576067885058",
+    "firebase_url": "https://sanitary-886b0.firebaseio.com",
+    "project_id": "sanitary-886b0",
+    "storage_bucket": "sanitary-886b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576067885058:android:9ed0b1c3e9f9b39273ef1b",
+        "android_client_info": {
+          "package_name": "kr.puze.sanitary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576067885058-cmnpcrejn1rh5lfa6fb5a2cosom9a0hk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.puze.sanitary",
+            "certificate_hash": "6f6427e2bbddcfbee7ea8084e7cab0f58c362861"
+          }
+        },
+        {
+          "client_id": "576067885058-gkuuf104gokm0850i72snvgfni89smm7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPgdhNtxVtPOEI9YokKfJo1BjyF_B6uQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576067885058-gkuuf104gokm0850i72snvgfni89smm7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

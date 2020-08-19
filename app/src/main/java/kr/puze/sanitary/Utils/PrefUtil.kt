@@ -49,6 +49,13 @@ class PrefUtil(context: Context) {
             editor.apply()
         }
 
+    var userUid: String
+        get() = preferences.getString("userUid", "").toString()
+        set(value) {
+            editor.putString("userUid", value)
+            editor.apply()
+        }
+
     fun logout(){
         preferences.edit().clear().commit()
         editor.clear().commit()
