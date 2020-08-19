@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
+import kr.puze.sanitary.Data.UserData
 import www.okit.co.Utils.PrefUtil
 import www.okit.co.Utils.ToastUtil
 
@@ -39,14 +40,10 @@ class RegisterActivity : AppCompatActivity() {
                     if(it.isSuccessful){
                         val user= firebaseAuth.currentUser
                         var uid = user!!.uid
-                        var hashMap: HashMap<Any, Any> = HashMap()
-                        hashMap.put("uid", uid)
-                        hashMap.put("email", user.email!!)
-                        hashMap.put("name", name)
-                        hashMap.put("isAdmin", isAdmin)
+                        var userData = UserData(uid, user.email!!, name, isAdmin)
                         var database: FirebaseDatabase = FirebaseDatabase.getInstance()
                         var reference: DatabaseReference = database.getReference("Users")
-                        reference.child(uid).setValue(hashMap)
+                        reference.child(uid).setValue(userData)
                         prefUtil.userUid = uid
                         prefUtil.userID = email
                         prefUtil.userPW = password
@@ -55,6 +52,7 @@ class RegisterActivity : AppCompatActivity() {
                         prefUtil.isLogin = true
                         ToastUtil(this@RegisterActivity).short("회원가입 성공")
                         startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
+                        finish()
                     }else{
                         prefUtil.logout()
                         ToastUtil(this@RegisterActivity).short("회원가입 실패")

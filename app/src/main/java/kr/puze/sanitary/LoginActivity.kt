@@ -7,6 +7,7 @@ import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kr.puze.sanitary.Data.UserData
 import www.okit.co.Utils.PrefUtil
 import www.okit.co.Utils.ToastUtil
 
@@ -58,10 +59,10 @@ class LoginActivity : AppCompatActivity() {
                         }
 
                         override fun onDataChange(dataSnapShot: DataSnapshot) {
-                            val value = dataSnapShot.getValue(HashMap::class.java)
+                            val value = dataSnapShot.getValue(UserData::class.java)
                             if(value != null){
-                                val name = value["name"].toString()
-                                val isAdmin = value["isAdmin"] as Boolean
+                                val name = value.name!!
+                                val isAdmin = value.isAdmin
                                 prefUtil.userUid = uid
                                 prefUtil.userID = email
                                 prefUtil.userPW = password
@@ -71,6 +72,7 @@ class LoginActivity : AppCompatActivity() {
 
                                 ToastUtil(this@LoginActivity).short("로그인 성공")
                                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                                finish()
                             }
                         }
                     })

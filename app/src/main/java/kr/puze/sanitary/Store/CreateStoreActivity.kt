@@ -28,6 +28,7 @@ class CreateStoreActivity : AppCompatActivity() {
     private fun init(){
         prefUtil = PrefUtil(this@CreateStoreActivity)
         button_back_create.setOnClickListener { finish() }
+        text_date_create.text = getDate()
         button_create.setOnClickListener { createStore(edit_name_create.text.toString(), edit_address_create.text.toString(), edit_phone_create.text.toString(), getDate()) }
     }
 
