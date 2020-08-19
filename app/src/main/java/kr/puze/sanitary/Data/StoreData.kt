@@ -4,11 +4,11 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class StoreData(
-    var title: String?,
-    var address: String?,
-    var phone: String?,
-    var date: String?,
-    var storeId: String?
+    var title: String? = "",
+    var address: String? = "",
+    var phone: String? = "",
+    var date: String? = "",
+    var storeId: String? = ""
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString(),

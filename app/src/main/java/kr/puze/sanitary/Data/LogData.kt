@@ -4,10 +4,10 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class LogData(
-    var title: String?,
-    var date: String?,
-    var score: Int,
-    var id: String?
+    var title: String? = "",
+    var date: String? = "",
+    var score: Int = 0,
+    var id: String? = ""
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString(),

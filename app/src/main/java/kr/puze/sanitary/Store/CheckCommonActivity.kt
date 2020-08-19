@@ -64,8 +64,8 @@ class CheckCommonActivity : AppCompatActivity() {
         val log = LogData(title, date, score, id)
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
         val reference: DatabaseReference = database.getReference("Logs")
-        reference.child(prefUtil.userUid).setValue(log)
-        finish()
+        reference.child(prefUtil.userUid).child(id).setValue(log)
+        reference.child("admin").child(id).setValue(log)
     }
 
     private fun getDate(): String{

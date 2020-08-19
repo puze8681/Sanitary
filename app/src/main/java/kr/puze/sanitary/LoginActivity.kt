@@ -72,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
 
                                 ToastUtil(this@LoginActivity).short("로그인 성공")
                                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                                finish()
+                                finishAffinity()
                             }
                         }
                     })

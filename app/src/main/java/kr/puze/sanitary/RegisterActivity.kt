@@ -52,7 +52,7 @@ class RegisterActivity : AppCompatActivity() {
                         prefUtil.isLogin = true
                         ToastUtil(this@RegisterActivity).short("회원가입 성공")
                         startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
-                        finish()
+                        finishAffinity()
                     }else{
                         prefUtil.logout()
                         ToastUtil(this@RegisterActivity).short("회원가입 실패")

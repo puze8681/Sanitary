@@ -2,8 +2,7 @@ package kr.puze.sanitary.Store
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_create_store.*
 import kr.puze.sanitary.Data.StoreData
 import kr.puze.sanitary.R
@@ -34,11 +33,12 @@ class CreateStoreActivity : AppCompatActivity() {
 
     private fun createStore(title: String, address: String, phone: String, date: String){
         if(title.isNotEmpty() && address.isNotEmpty() && phone.isNotEmpty()){
-            val store = StoreData(title, address, phone, date, UUID.randomUUID().toString())
+            var storeId = UUID.randomUUID().toString()
+            val store = StoreData(title, address, phone, date, storeId)
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val reference: DatabaseReference = database.getReference("Stores")
-            reference.child(prefUtil.userUid).setValue(store)
-            reference.child("admin").setValue(store)
+            reference.child(prefUtil.userUid).child(storeId).setValue(store)
+            reference.child("admin").child(storeId).setValue(store)
             finish()
         }else{
             ToastUtil(this@CreateStoreActivity).short("빈칸을 채워주세요.")

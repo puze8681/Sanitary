@@ -33,7 +33,10 @@ class LogActivity : AppCompatActivity() {
         val deco = SpacesItemDecoration(24)
         recycler_log.addItemDecoration(deco)
 
-        getLogData()
+        val isSingle = intent.getBooleanExtra("isSingle", false)
+        val storeId = intent.getStringExtra("storeId")
+        if(isSingle) getSingleLogData(storeId)
+        else getLogData()
     }
 
     private fun getLogData(){
@@ -64,8 +67,34 @@ class LogActivity : AppCompatActivity() {
             }
         })
     }
+
+    private fun getSingleLogData(storeId: String){
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val reference: DatabaseReference = database.getReference("Logs")
+        var key = if (prefUtil.isAdmin) "admin" else prefUtil.userUid
+        reference.child(key).child(storeId).addValueEventListener(object :
+            ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                ToastUtil(this@LogActivity).short("데이터 읽기 실패")
+                logArrayList.clear()
+                logArrayList.add(LogData("매장이름 1", "2020.01.01", 100,"abc"))
+                logArrayList.add(LogData("매장이름 2", "2020.02.01", 90,"bcd"))
+                logArrayList.add(LogData("매장이름 3", "2020.03.01", 80,"cde"))
+                logArrayList.add(LogData("매장이름 4", "2020.04.01", 70,"def"))
+                logArrayList.add(LogData("매장이름 5", "2020.05.01", 60,"efg"))
+                setRecyclerView(logArrayList)
+            }
+
+            override fun onDataChange(dataSnapShot: DataSnapshot) {
+                logArrayList.clear()
+                val data = dataSnapShot.getValue(LogData::class.java)
+                logArrayList.add(data!!)
+                setRecyclerView(logArrayList)
+            }
+        })
+    }
     private fun setRecyclerView(logArrayList: ArrayList<LogData>){
-        logAdapter = LogRecyclerAdapter(logArrayList, this@LogActivity)
+        logAdapter = LogRecyclerAdapter(prefUtil.userUid, logArrayList, this@LogActivity)
         recycler_log.adapter = logAdapter
         (recycler_log.adapter as LogRecyclerAdapter).notifyDataSetChanged()
         logAdapter.itemClick = object : LogRecyclerAdapter.ItemClick {

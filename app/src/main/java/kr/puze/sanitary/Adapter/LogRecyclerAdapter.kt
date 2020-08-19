@@ -6,13 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.item_log.view.*
 import kr.puze.sanitary.Data.LogData
 import kr.puze.sanitary.R
 import kr.puze.sanitary.Store.CheckCommonActivity
 import kotlin.math.roundToInt
 
-class LogRecyclerAdapter(var items: ArrayList<LogData>, var context: Context) : RecyclerView.Adapter<LogRecyclerAdapter.ViewHolder>() {
+class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var context: Context) : RecyclerView.Adapter<LogRecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_log, null))
     }
@@ -21,6 +23,13 @@ class LogRecyclerAdapter(var items: ArrayList<LogData>, var context: Context) : 
         holder.bind(items[position], position)
         holder.itemView.setOnClickListener {
             itemClick?.onItemClick(holder.itemView, position)
+        }
+
+        holder.itemView.button_delete_log.setOnClickListener {
+            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+            val reference: DatabaseReference = database.getReference("Logs")
+            reference.child(uid).child(items[position].id!!).ref.removeValue()
+            reference.child("admin").child(items[position].id!!).ref.removeValue()
         }
     }
 

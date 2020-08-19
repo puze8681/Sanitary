@@ -71,7 +71,7 @@ class InformationActivity : AppCompatActivity() {
         })
     }
     private fun setRecyclerView(infoArray: ArrayList<InfoData>){
-        infoAdapter = InfoRecyclerAdapter(infoArray, this@InformationActivity)
+        infoAdapter = InfoRecyclerAdapter(prefUtil.userUid, infoArray, this@InformationActivity)
         recycler_info.adapter = infoAdapter
         (recycler_info.adapter as InfoRecyclerAdapter).notifyDataSetChanged()
         infoAdapter.itemClick = object : InfoRecyclerAdapter.ItemClick {

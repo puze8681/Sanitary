@@ -24,7 +24,7 @@ class MainRecyclerAdapter(var items: ArrayList<StoreData>, var context: Context)
             itemClick?.onItemClick(holder.itemView, position)
         }
 
-        holder.itemView.button_result_main.setOnClickListener { context.startActivity(Intent(context.applicationContext, LogActivity::class.java)) }
+        holder.itemView.button_result_main.setOnClickListener { context.startActivity(Intent(context.applicationContext, LogActivity::class.java).putExtra("isSingle", true).putExtra("storeId", items[position].storeId)) }
         holder.itemView.button_check_main.setOnClickListener { context.startActivity(Intent(context.applicationContext, CheckBasicActivity::class.java).putExtra("storeId", items[position].storeId).putExtra("title", items[position].title)) }
     }
 
