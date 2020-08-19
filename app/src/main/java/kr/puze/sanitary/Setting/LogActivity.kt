@@ -6,9 +6,7 @@ import android.view.View
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_log.*
 import kr.puze.sanitary.Adapter.LogRecyclerAdapter
-import kr.puze.sanitary.Data.InfoData
 import kr.puze.sanitary.Data.LogData
-import kr.puze.sanitary.Data.StoreData
 import kr.puze.sanitary.R
 import kr.puze.sanitary.Utils.SpacesItemDecoration
 import www.okit.co.Utils.PrefUtil
@@ -41,7 +39,8 @@ class LogActivity : AppCompatActivity() {
     private fun getLogData(){
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
         val reference: DatabaseReference = database.getReference("Logs")
-        reference.child(InformationActivity.prefUtil.userUid).addValueEventListener(object :
+        var key = if (prefUtil.isAdmin) "admin" else prefUtil.userUid
+        reference.child(key).addValueEventListener(object :
             ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 ToastUtil(this@LogActivity).short("데이터 읽기 실패")

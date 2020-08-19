@@ -32,11 +32,12 @@ class CreateStoreActivity : AppCompatActivity() {
     }
 
     private fun createStore(title: String, address: String, phone: String, date: String){
-        if(title.isEmpty() && address.isEmpty() && phone.isEmpty()){
+        if(title.isNotEmpty() && address.isNotEmpty() && phone.isNotEmpty()){
             val store = StoreData(title, address, phone, date, UUID.randomUUID().toString())
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val reference: DatabaseReference = database.getReference("Stores")
             reference.child(prefUtil.userUid).setValue(store)
+            reference.child("admin").setValue(store)
             finish()
         }else{
             ToastUtil(this@CreateStoreActivity).short("빈칸을 채워주세요.")

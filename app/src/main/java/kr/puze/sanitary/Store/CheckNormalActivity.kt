@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_check_normal.*
 import kr.puze.sanitary.Adapter.StartCheckRecyclerAdapter
 import kr.puze.sanitary.Data.EndCheckData
 import kr.puze.sanitary.Data.MiddleCheckData
 import kr.puze.sanitary.Data.StartCheckData
 import kr.puze.sanitary.R
-import kotlin.math.roundToInt
 
 class CheckNormalActivity : AppCompatActivity() {
 

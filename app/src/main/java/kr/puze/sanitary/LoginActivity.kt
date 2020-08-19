@@ -42,41 +42,46 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(email: String, password: String) {
-        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
-            if (it.isSuccessful) {
-                val user = firebaseAuth.currentUser
-                val uid = user!!.uid
-                val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-                val reference: DatabaseReference = database.getReference("Users")
-                reference.child(uid).addValueEventListener(object : ValueEventListener {
-                    override fun onCancelled(p0: DatabaseError) {
-                        ToastUtil(this@LoginActivity).short("데이터 읽기 실패")
-                        prefUtil.logout()
-                        firebaseAuth.signOut()
-                    }
-
-                    override fun onDataChange(dataSnapShot: DataSnapshot) {
-                        val value = dataSnapShot.getValue(HashMap::class.java)
-                        if(value != null){
-                            val name = value["name"].toString()
-                            val isAdmin = value["isAdmin"] as Boolean
-                            prefUtil.userUid = uid
-                            prefUtil.userID = email
-                            prefUtil.userPW = password
-                            prefUtil.userName = name
-                            prefUtil.isAdmin = isAdmin
-                            prefUtil.isLogin = true
-
-                            ToastUtil(this@LoginActivity).short("로그인 성공")
-                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        if(email.isNotEmpty() && password.isNotEmpty()){
+            firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val user = firebaseAuth.currentUser
+                    val uid = user!!.uid
+                    val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+                    val reference: DatabaseReference = database.getReference("Users")
+                    reference.child(uid).addValueEventListener(object : ValueEventListener {
+                        override fun onCancelled(databaseError: DatabaseError) {
+                            Log.d("LOGTAG/LOGIN", "$databaseError")
+                            ToastUtil(this@LoginActivity).short("데이터 읽기 실패")
+                            prefUtil.logout()
+                            firebaseAuth.signOut()
                         }
-                    }
-                })
-            } else {
-                prefUtil.logout()
-                Log.d("LOGTAG/REGISTER", "${it.exception}")
-                ToastUtil(this@LoginActivity).short("로그인 실패")
+
+                        override fun onDataChange(dataSnapShot: DataSnapshot) {
+                            val value = dataSnapShot.getValue(HashMap::class.java)
+                            if(value != null){
+                                val name = value["name"].toString()
+                                val isAdmin = value["isAdmin"] as Boolean
+                                prefUtil.userUid = uid
+                                prefUtil.userID = email
+                                prefUtil.userPW = password
+                                prefUtil.userName = name
+                                prefUtil.isAdmin = isAdmin
+                                prefUtil.isLogin = true
+
+                                ToastUtil(this@LoginActivity).short("로그인 성공")
+                                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                            }
+                        }
+                    })
+                } else {
+                    prefUtil.logout()
+                    Log.d("LOGTAG/REGISTER", "${it.exception}")
+                    ToastUtil(this@LoginActivity).short("로그인 실패")
+                }
             }
+        }else{
+            ToastUtil(this@LoginActivity).short("빈칸을 채워주세요")
         }
     }
 }
