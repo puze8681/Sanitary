@@ -115,4 +115,52 @@
         android:background="@color/colorGrayDark"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
+    <LinearLayout
+        android:id="@+id/button_sanitary_setting"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <ImageView
+            android:padding="8dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorGrayDark"
+            android:text="위생등급제란?"
+            android:gravity="center|left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/colorGrayDark"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:id="@+id/button_company_setting"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <ImageView
+            android:padding="8dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorGrayDark"
+            android:text="회사소개"
+            android:gravity="center|left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/colorGrayDark"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
 </LinearLayout>
