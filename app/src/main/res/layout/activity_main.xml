@@ -26,14 +26,26 @@
             android:layout_centerVertical="true"
             android:layout_width="56dp"
             android:layout_height="56dp"/>
-        <ImageView
-            android:padding="16dp"
+        <LinearLayout
             android:id="@+id/button_setting_main"
-            android:src="@drawable/ic_setting"
+            android:gravity="center"
+            android:orientation="vertical"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_width="56dp"
-            android:layout_height="56dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="56dp">
+            <ImageView
+                android:src="@drawable/ic_setting"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:singleLine="true"
+                android:text="마이페이지"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
     </RelativeLayout>
     <View
         android:background="@color/colorGrayDark"
