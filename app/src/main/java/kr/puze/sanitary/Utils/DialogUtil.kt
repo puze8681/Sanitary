@@ -2,16 +2,17 @@ package www.okit.co.Utils
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.AlertDialog
 import android.app.Dialog
-import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.Window
+import androidx.core.content.ContextCompat.startActivity
 import kotlinx.android.synthetic.main.dialog_no.*
 import kotlinx.android.synthetic.main.dialog_submit.*
 import kr.puze.sanitary.MainActivity
 import kr.puze.sanitary.R
+
 
 @Suppress("DEPRECATION")
 class DialogUtil(context: Context) {
@@ -47,6 +48,16 @@ class DialogUtil(context: Context) {
             dialog.dismiss()
             activity.finishAffinity()
             activity.startActivity(Intent(activity, MainActivity::class.java))
+        }
+        dialog.button_consulting_submit.setOnClickListener {
+            val uri: Uri = Uri.parse("https://form.office.naver.com/form/responseView.cmd?formkey=ZTFhZTIwMDItNWUxZS00OTcwLWI3ZTAtMzBmZDM0MmNmMWY3&sourceId=mail&sf=f")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            activity.startActivity(intent)
+        }
+        dialog.image_consulting_submit.setOnClickListener {
+            val uri: Uri = Uri.parse("https://form.office.naver.com/form/responseView.cmd?formkey=ZTFhZTIwMDItNWUxZS00OTcwLWI3ZTAtMzBmZDM0MmNmMWY3&sourceId=mail&sf=f")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            activity.startActivity(intent)
         }
         dialog.show()
     }

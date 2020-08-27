@@ -16,6 +16,29 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="16dp"/>
+    <TextView
+        android:textSize="18sp"
+        android:textColor="@color/colorBlack"
+        android:text="컨설팅 신청 링크 :"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/button_consulting_submit"
+        android:justificationMode="inter_word"
+        android:textSize="12sp"
+        android:text="https://form.office.naver.com/form/responseView.cmd?formkey=ZTFhZTIwMDItNWUxZS00OTcwLWI3ZTAtMzBmZDM0MmNmMWY3&amp;sourceId=mail&amp;sf=f"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/image_consulting_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="96dp"
+        android:scaleType="fitEnd"
+        android:src="@drawable/consulting" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"/>
     <LinearLayout
         android:gravity="right"
         android:orientation="horizontal"
