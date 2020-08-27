@@ -261,7 +261,8 @@ class CheckNormalActivity : AppCompatActivity() {
             Intent(this@CheckNormalActivity, CheckCommonActivity::class.java)
                 .putExtra("storeId", storeId)
                 .putExtra("title", storeTitle)
-                .putExtra("score", submitScore))
+                .putExtra("score", submitScore)
+                .putParcelableArrayListExtra("startArray", startArray))
 
     }
 }

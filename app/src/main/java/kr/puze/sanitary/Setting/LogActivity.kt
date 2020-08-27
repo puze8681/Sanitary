@@ -94,7 +94,7 @@ class LogActivity : AppCompatActivity() {
         })
     }
     private fun setRecyclerView(logArrayList: ArrayList<LogData>){
-        logAdapter = LogRecyclerAdapter(prefUtil.userUid, logArrayList, this@LogActivity)
+        logAdapter = LogRecyclerAdapter(prefUtil.userUid, logArrayList, this@LogActivity, prefUtil)
         recycler_log.adapter = logAdapter
         (recycler_log.adapter as LogRecyclerAdapter).notifyDataSetChanged()
         logAdapter.itemClick = object : LogRecyclerAdapter.ItemClick {
