@@ -34,6 +34,8 @@
             android:layout_width="56dp"
             android:layout_height="56dp"/>
         <CheckBox
+            android:button="@null"
+            android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
             android:id="@+id/check_middle_check"
             android:text="해당없음"
             android:gravity="center"
@@ -42,6 +44,7 @@
             android:layout_height="56dp"/>
         <TextView
             android:id="@+id/text_score_middle_check"
+            android:layout_marginRight="8dp"
             android:layout_toLeftOf="@id/check_middle_check"
             android:textColor="@color/colorBlack"
             android:gravity="center|left"
