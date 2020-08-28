@@ -97,7 +97,7 @@
                 android:layout_marginLeft="16dp"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
-                android:text="체크리스트"
+                android:text="평가하기"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

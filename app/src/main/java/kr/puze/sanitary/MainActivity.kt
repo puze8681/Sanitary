@@ -3,6 +3,7 @@ package kr.puze.sanitary
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -39,6 +40,16 @@ class MainActivity : AppCompatActivity() {
         setCount(mainArray.size)
         button_add_store_main.setOnClickListener { startActivity(Intent(this@MainActivity, CreateStoreActivity::class.java)) }
         button_setting_main.setOnClickListener { startActivity(Intent(this@MainActivity, SettingActivity::class.java)) }
+        button_link_main.setOnClickListener {
+            val uri: Uri = Uri.parse("https://blog.naver.com/hws4389")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+        }
+        button_phone_main.setOnClickListener {
+            var uri: Uri = Uri.parse("tel:0269490226")
+            var intent = Intent(Intent.ACTION_DIAL, uri)
+            startActivity(intent)
+        }
         getStoreData()
     }
 
