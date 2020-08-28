@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_setting.*
 import kr.puze.sanitary.Setting.InformationActivity
 import kr.puze.sanitary.Setting.LogActivity
 import kr.puze.sanitary.Setting.PasswordChangeActivity
+import kr.puze.sanitary.Setting.TextActivity
 import www.okit.co.Utils.PrefUtil
 import www.okit.co.Utils.ToastUtil
 
@@ -32,6 +33,13 @@ class SettingActivity : AppCompatActivity() {
         button_information_setting.setOnClickListener { startActivity(Intent(this@SettingActivity, InformationActivity::class.java)) }
         button_log_setting.setOnClickListener { startActivity(Intent(this@SettingActivity, LogActivity::class.java)) }
         button_logout_setting.setOnClickListener { logout() }
+        button_sanitary_setting.setOnClickListener { openTextActivity(0) }
+        button_company_setting.setOnClickListener { openTextActivity(1) }
+        button_consulting_setting.setOnClickListener { openTextActivity(2) }
+    }
+
+    private fun openTextActivity(type: Int){
+        startActivity(Intent(this@SettingActivity, TextActivity::class.java).putExtra("type", type))
     }
 
     private fun logout(){
