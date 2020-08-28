@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Store.CheckCommonActivity"></activity>
+        <activity android:name=".Setting.TextActivity"></activity>
+        <activity android:name=".Store.CheckCommonActivity" />
         <activity android:name=".Store.CheckBasicActivity" />
         <activity android:name=".Store.CheckNormalActivity" />
         <activity android:name=".Store.ResultActivity" />
