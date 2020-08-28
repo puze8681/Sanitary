@@ -61,9 +61,34 @@
         android:text="전체 n개의 점검내역이 있습니다."
         android:layout_width="match_parent"
         android:layout_height="56dp"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_main"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_main"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:background="#8C7D7D7D"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <TextView
+                android:textSize="24sp"
+                android:textColor="@color/colorBlack"
+                android:background="#DEE6F0"
+                android:gravity="center"
+                android:text="한국위생등급 지원센터\n☎ 02-6949-0226"
+                android:layout_width="match_parent"
+                android:layout_height="84dp"/>
+            <View
+                android:background="@color/colorGrayDark"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

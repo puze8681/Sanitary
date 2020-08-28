@@ -116,14 +116,20 @@ class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var con
         val sheet: Sheet = wb.createSheet("식품 위생 관리")
         val row0: Row = sheet.createRow(0)
         val row1: Row = sheet.createRow(1)
+        val row2: Row = sheet.createRow(2)
         row0.createCell(0).setCellValue("매장 이름")
         row1.createCell(0).setCellValue(title)
         row0.createCell(1).setCellValue("날짜")
         row1.createCell(1).setCellValue(date)
         row0.createCell(2).setCellValue("점수")
         row1.createCell(2).setCellValue("$score")
-
-        var nowRow = 2
+        row2.createCell(0).setCellValue("분야")
+        row2.createCell(1).setCellValue("평가항목")
+        row2.createCell(2).setCellValue("해당여부")
+        row2.createCell(3).setCellValue("평가기준")
+        row2.createCell(4).setCellValue("평가점수")
+        row2.createCell(5).setCellValue("해당여부")
+        var nowRow = 3
         for(i in 0 until startArray.size){
             val row = sheet.createRow(nowRow)
             row.createCell(0).setCellValue(startArray[i].text)
@@ -131,7 +137,7 @@ class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var con
             for(j in 0 until startArray[i].middleList!!.size){
                 val row = sheet.createRow(nowRow)
                 row.createCell(1).setCellValue(startArray[i].middleList!![j].text)
-                row.createCell(2).setCellValue(startArray[i].middleList!![j].noApplicable)
+                row.createCell(2).setCellValue(!startArray[i].middleList!![j].noApplicable)
                 nowRow += 1
                 for(k in 0 until startArray[i].middleList!![j].endList!!.size){
                     val row = sheet.createRow(nowRow)

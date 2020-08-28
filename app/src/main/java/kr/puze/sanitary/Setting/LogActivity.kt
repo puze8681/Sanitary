@@ -2,6 +2,7 @@ package kr.puze.sanitary.Setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_log.*
@@ -43,6 +44,7 @@ class LogActivity : AppCompatActivity() {
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
         val reference: DatabaseReference = database.getReference("Logs")
         var key = if (prefUtil.isAdmin) "admin" else prefUtil.userUid
+        Log.d("LOGTAG/LOGACTIVITY", "key: $key")
         reference.child(key).addValueEventListener(object :
             ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -58,12 +60,15 @@ class LogActivity : AppCompatActivity() {
 
             override fun onDataChange(dataSnapShot: DataSnapshot) {
                 logArrayList.clear()
+                Log.d("LOGTAG/LOGACTIVITY", "dataSnapShot: ${dataSnapShot.value}")
                 dataSnapShot.children.forEach{
                     it.getValue(LogData::class.java)?.let { data ->
-                        logArrayList.add(data)
+                        Log.d("LOGTAG/LOGACTIVITY", "data: $data")
+                        logArrayList.add(LogData(data.title, data.date, data.score, data.id))
                     }
-                    setRecyclerView(logArrayList)
                 }
+                Log.d("LOGTAG/LOGACTIVITY", "logArrayList: $logArrayList")
+                setRecyclerView(logArrayList)
             }
         })
     }
