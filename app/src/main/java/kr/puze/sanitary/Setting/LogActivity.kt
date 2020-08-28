@@ -88,7 +88,9 @@ class LogActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapShot: DataSnapshot) {
                 logArrayList.clear()
                 val data = dataSnapShot.getValue(LogData::class.java)
-                logArrayList.add(data!!)
+                if(data != null){
+                    logArrayList.add(data)
+                }
                 setRecyclerView(logArrayList)
             }
         })

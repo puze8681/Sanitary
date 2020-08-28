@@ -4,11 +4,11 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class MiddleCheckData(
-    var index: String?,
-    var text: String?,
-    var totalScore: Int,
-    var noApplicable: Boolean,
-    var endList: ArrayList<EndCheckData>?
+    var index: String? = "",
+    var text: String?= "",
+    var totalScore: Int = -1,
+    var noApplicable: Boolean = false,
+    var endList: ArrayList<EndCheckData>? = ArrayList<EndCheckData>()
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString(),

@@ -4,8 +4,8 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class StartCheckData(
-    var text: String?,
-    var middleList: ArrayList<MiddleCheckData>?
+    var text: String? = "",
+    var middleList: ArrayList<MiddleCheckData>? = ArrayList<MiddleCheckData>()
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString(),

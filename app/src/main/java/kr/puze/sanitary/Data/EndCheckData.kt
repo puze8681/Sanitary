@@ -4,10 +4,10 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class EndCheckData(
-    var index: String?,
-    var text: String?,
-    var score: Int,
-    var isChecked: Boolean
+    var index: String? = "",
+    var text: String? = "",
+    var score: Int = -1,
+    var isChecked: Boolean = false
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString(),

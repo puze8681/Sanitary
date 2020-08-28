@@ -30,6 +30,7 @@ class RegisterActivity : AppCompatActivity() {
         prefUtil = PrefUtil(this@RegisterActivity)
         firebaseAuth = FirebaseAuth.getInstance()
         view_agree_register.setOnClickListener { check_register.isChecked = !check_register.isChecked }
+        view_privacy_register.setOnClickListener { check_privacy_register.isChecked = !check_privacy_register.isChecked }
         button_back_register.setOnClickListener { finish() }
         text_privacy_register.setOnClickListener {
             val uri: Uri = Uri.parse("https://drive.google.com/file/d/1o2_-EfQ54TWBqPnSMJrCdK_h6L6MWhWo/view?usp=sharing")
@@ -41,7 +42,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun register(email: String, name: String, password: String, passwordConfirm: String, isAdmin: Boolean){
         if(email.isNotEmpty() && name.isNotEmpty() && password.isNotEmpty() && passwordConfirm.isNotEmpty()){
-            if(!check_privacy_register.isChecked){
+            if(check_privacy_register.isChecked){
                 if(password == passwordConfirm){
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                         if(it.isSuccessful){
