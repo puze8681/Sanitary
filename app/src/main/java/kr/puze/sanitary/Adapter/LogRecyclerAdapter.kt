@@ -7,7 +7,6 @@ import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.item_log.view.*
@@ -23,6 +22,9 @@ import www.okit.co.Utils.ToastUtil
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var context: Context, var prefUtil: PrefUtil) : RecyclerView.Adapter<LogRecyclerAdapter.ViewHolder>() {
@@ -46,8 +48,10 @@ class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var con
         holder.itemView.button_result_log.setOnClickListener {
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val referenceResult: DatabaseReference = database.getReference("Results")
+            val referenceAdd: DatabaseReference = database.getReference("Adds")
             var key = if (prefUtil.isAdmin) "admin" else prefUtil.userUid
             var startArray = ArrayList<StartCheckData>()
+            var addArray = ArrayList<String>()
             referenceResult.child(key).child(items[position].id!!).addValueEventListener(object :
                 ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
@@ -61,7 +65,23 @@ class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var con
                             startArray.add(data)
                         }
                     }
-                    exportExcel(startArray)
+                    referenceAdd.child(key).child(items[position].id!!).addValueEventListener(object :
+                        ValueEventListener {
+                        override fun onCancelled(p0: DatabaseError) {
+                            exportExcel("${items[position].title}", "${items[position].date}", items[position].score, startArray, addArray)
+                        }
+
+                        override fun onDataChange(dataSnapShot: DataSnapshot) {
+                            addArray.clear()
+                            dataSnapShot.children.forEach{
+                                it.getValue(String::class.java)?.let { data ->
+                                    addArray.add(data)
+                                }
+                            }
+
+                            exportExcel("${items[position].title}", "${items[position].date}", items[position].score, startArray, addArray)
+                        }
+                    })
                 }
             })
         }
@@ -91,14 +111,46 @@ class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var con
         fun onItemClick(view: View?, position: Int)
     }
 
-    private fun exportExcel(startArray: ArrayList<StartCheckData>){
+    private fun exportExcel(title: String, date: String, score: Int, startArray: ArrayList<StartCheckData>, addArray: ArrayList<String>){
         val wb: Workbook = HSSFWorkbook()
         val sheet: Sheet = wb.createSheet("식품 위생 관리")
-        val row: Row = sheet.createRow(0)
-        val cell = row.createCell(0)
-        cell.setCellValue(1.0)
+        val row0: Row = sheet.createRow(0)
+        val row1: Row = sheet.createRow(1)
+        row0.createCell(0).setCellValue("매장 이름")
+        row1.createCell(0).setCellValue(title)
+        row0.createCell(1).setCellValue("날짜")
+        row1.createCell(1).setCellValue(date)
+        row0.createCell(2).setCellValue("점수")
+        row1.createCell(2).setCellValue("$score")
 
-        val filename = "test.xls"
+        var nowRow = 2
+        for(i in 0 until startArray.size){
+            val row = sheet.createRow(nowRow)
+            row.createCell(0).setCellValue(startArray[i].text)
+            nowRow += 1
+            for(j in 0 until startArray[i].middleList!!.size){
+                val row = sheet.createRow(nowRow)
+                row.createCell(1).setCellValue(startArray[i].middleList!![j].text)
+                row.createCell(2).setCellValue(startArray[i].middleList!![j].noApplicable)
+                nowRow += 1
+                for(k in 0 until startArray[i].middleList!![j].endList!!.size){
+                    val row = sheet.createRow(nowRow)
+                    row.createCell(3).setCellValue(startArray[i].middleList!![j].endList!![k].text)
+                    row.createCell(4).setCellValue("${startArray[i].middleList!![j].endList!![k].score}")
+                    row.createCell(5).setCellValue(startArray[i].middleList!![j].endList!![k].isChecked)
+                    nowRow += 1
+                }
+            }
+        }
+        val row = sheet.createRow(nowRow)
+        row.createCell(0).setCellValue("가산점")
+        nowRow += 1
+        for (i in addArray){
+            val row = sheet.createRow(nowRow)
+            row.createCell(0).setCellValue(i)
+            nowRow += 1
+        }
+        val filename = "한국위생등급지원센터-${getDate()}.xls"
         val dir: File =
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
         val xls = File(dir, filename)
@@ -114,5 +166,9 @@ class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var con
         excelIntent.putExtra(Intent.EXTRA_SUBJECT, "excel file email test")
         excelIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://$dir/$filename"))
         context.startActivity(excelIntent)
+    }
+
+    private fun getDate(): String{
+        return SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Calendar.getInstance().timeInMillis)
     }
 }
