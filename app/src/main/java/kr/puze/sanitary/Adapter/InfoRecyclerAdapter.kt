@@ -1,6 +1,7 @@
 package kr.puze.sanitary.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.item_info.view.*
 import kr.puze.sanitary.Data.InfoData
 import kr.puze.sanitary.R
 import kr.puze.sanitary.Setting.InformationActivity
+import kr.puze.sanitary.Store.CheckBasicActivity
 
 class InfoRecyclerAdapter(var uid: String, var items: ArrayList<InfoData>, var context: Context) : RecyclerView.Adapter<InfoRecyclerAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,6 +29,9 @@ class InfoRecyclerAdapter(var uid: String, var items: ArrayList<InfoData>, var c
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val reference: DatabaseReference = database.getReference("Stores")
             reference.child(uid).child(items[position].id!!).ref.removeValue()
+        }
+        holder.itemView.button_result_info.setOnClickListener {
+            context.startActivity(Intent(context.applicationContext, CheckBasicActivity::class.java).putExtra("storeId", items[position].id).putExtra("title", items[position].title))
         }
     }
 

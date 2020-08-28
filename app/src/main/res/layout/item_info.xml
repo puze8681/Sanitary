@@ -68,7 +68,7 @@
             android:gravity="center"
             android:background="@drawable/view_sround_blue_fill2"
             android:textColor="@color/colorWhite"
-            android:text="수정 및 자세히 보기"
+            android:text="평가하기"
             android:layout_width="match_parent"
             android:layout_height="56dp"/>
     </LinearLayout>
