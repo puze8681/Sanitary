@@ -166,7 +166,7 @@ class LogRecyclerAdapter(var uid: String, var items: ArrayList<LogData>, var con
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
+        ToastUtil(context).short("${xls.absolutePath} 에 저장되었습니다.")
         val uri = Uri.parse("mailto:${prefUtil.userID}")
         val excelIntent = Intent(Intent.ACTION_SENDTO, uri)
         excelIntent.putExtra(Intent.EXTRA_SUBJECT, "excel file email test")
