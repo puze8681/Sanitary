@@ -14,6 +14,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.puze.sanitary.Adapter.MainRecyclerAdapter
 import kr.puze.sanitary.Data.StoreData
+import kr.puze.sanitary.Setting.InformationActivity
 import kr.puze.sanitary.Store.CreateStoreActivity
 import www.okit.co.Utils.PrefUtil
 import www.okit.co.Utils.ToastUtil
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     private fun init(){
         prefUtil = PrefUtil(this@MainActivity)
         checkPermission()
-        setCount(mainArray.size)
+        button_main.setOnClickListener { startActivity(Intent(this@MainActivity, InformationActivity::class.java)) }
         button_add_store_main.setOnClickListener { startActivity(Intent(this@MainActivity, CreateStoreActivity::class.java)) }
         button_setting_main.setOnClickListener { startActivity(Intent(this@MainActivity, SettingActivity::class.java)) }
         button_link_main.setOnClickListener {
@@ -49,47 +50,6 @@ class MainActivity : AppCompatActivity() {
             var uri: Uri = Uri.parse("tel:0269490226")
             var intent = Intent(Intent.ACTION_DIAL, uri)
             startActivity(intent)
-        }
-        getStoreData()
-    }
-
-    private fun setCount(count: Int){
-        text_count_main.text = "전체 ${count}개의 점검내역이 있습니다."
-    }
-
-    private fun getStoreData(){
-        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        val reference: DatabaseReference = database.getReference("Stores")
-        reference.child(prefUtil.userUid).addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-                ToastUtil(this@MainActivity).short("데이터 읽기 실패")
-                mainArray.clear()
-                mainArray.add(StoreData("매장 이름1", "주소", "010-xxxx-xxxx", "2020.01.01", "store001"))
-                mainArray.add(StoreData("매장 이름2", "주소", "010-xxxx-xxxx", "2020.01.01", "store002"))
-                mainArray.add(StoreData("매장 이름3", "주소", "010-xxxx-xxxx", "2020.01.01", "store003"))
-                setStoreRecyclerView(mainArray)
-            }
-
-            override fun onDataChange(dataSnapShot: DataSnapshot) {
-                mainArray.clear()
-                dataSnapShot.children.forEach{
-                    it.getValue(StoreData::class.java)?.let { data ->
-                        mainArray.add(data)
-                    }
-                    setStoreRecyclerView(mainArray)
-                }
-            }
-        })
-    }
-
-    private fun setStoreRecyclerView(mainArray: ArrayList<StoreData>){
-        setCount(mainArray.size)
-        mainAdapter = MainRecyclerAdapter(mainArray, this@MainActivity)
-        recycler_main.adapter = mainAdapter
-        (recycler_main.adapter as MainRecyclerAdapter).notifyDataSetChanged()
-        mainAdapter.itemClick = object : MainRecyclerAdapter.ItemClick {
-            override fun onItemClick(view: View?, position: Int) {
-            }
         }
     }
 

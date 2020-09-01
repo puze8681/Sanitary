@@ -15,14 +15,14 @@
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:text="점검"
+            android:text="음식점 위험등급제 관리"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
         <ImageView
             android:padding="16dp"
             android:id="@+id/button_add_store_main"
-            android:src="@drawable/ic_store"
-            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_menu"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_width="56dp"
             android:layout_height="56dp"/>
@@ -30,7 +30,7 @@
             android:id="@+id/button_setting_main"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="56dp">
@@ -51,16 +51,6 @@
         android:background="@color/colorGrayDark"
         android:layout_width="match_parent"
         android:layout_height="2dp"/>
-    <TextView
-        android:background="#F6F6F6"
-        android:bufferType="spannable"
-        android:id="@+id/text_count_main"
-        android:textSize="12sp"
-        android:textColor="@color/colorBlack"
-        android:gravity="center"
-        android:text="전체 n개의 점검내역이 있습니다."
-        android:layout_width="match_parent"
-        android:layout_height="56dp"/>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -68,11 +58,58 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_main"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            <LinearLayout
+                android:weightSum="3"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="168dp">
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logo"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent"/>
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logo"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent"/>
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logo"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/button_main"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:background="@drawable/view_sround_blue_fill"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="84dp">
+                <ImageView
+                    android:padding="8dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"/>
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorWhite"
+                    android:text="위생등급제 자체 평가하기"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
             <View
                 android:background="#8C7D7D7D"
                 android:layout_width="match_parent"
