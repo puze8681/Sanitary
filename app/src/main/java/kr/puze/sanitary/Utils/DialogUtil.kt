@@ -49,11 +49,6 @@ class DialogUtil(context: Context) {
             activity.finishAffinity()
             activity.startActivity(Intent(activity, MainActivity::class.java))
         }
-        dialog.button_consulting_submit.setOnClickListener {
-            val uri: Uri = Uri.parse("https://form.office.naver.com/form/responseView.cmd?formkey=ZTFhZTIwMDItNWUxZS00OTcwLWI3ZTAtMzBmZDM0MmNmMWY3&sourceId=mail&sf=f")
-            val intent = Intent(Intent.ACTION_VIEW, uri)
-            activity.startActivity(intent)
-        }
         dialog.image_consulting_submit.setOnClickListener {
             val uri: Uri = Uri.parse("https://form.office.naver.com/form/responseView.cmd?formkey=ZTFhZTIwMDItNWUxZS00OTcwLWI3ZTAtMzBmZDM0MmNmMWY3&sourceId=mail&sf=f")
             val intent = Intent(Intent.ACTION_VIEW, uri)
