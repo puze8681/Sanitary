@@ -7,135 +7,148 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp">
-        <TextView
-            android:gravity="center"
-            android:textColor="@color/colorBlack"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="음식점 위험등급제 관리"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-        <ImageView
-            android:padding="16dp"
-            android:id="@+id/button_add_store_main"
-            android:src="@drawable/ic_menu"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_width="56dp"
-            android:layout_height="56dp"/>
-        <LinearLayout
-            android:id="@+id/button_setting_main"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp">
-            <ImageView
-                android:src="@drawable/ic_setting"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:singleLine="true"
-                android:text="마이페이지"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </RelativeLayout>
-    <View
-        android:background="@color/colorGrayDark"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"/>
-    <androidx.core.widget.NestedScrollView
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
-                android:weightSum="3"
-                android:orientation="horizontal"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="168dp">
-                <ImageView
-                    android:scaleType="fitXY"
-                    android:src="@drawable/logo"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"/>
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="match_parent"/>
-                <ImageView
-                    android:scaleType="fitXY"
-                    android:src="@drawable/logo"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"/>
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="match_parent"/>
-                <ImageView
-                    android:scaleType="fitXY"
-                    android:src="@drawable/logo"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/button_main"
-                android:gravity="center"
-                android:layout_margin="8dp"
-                android:background="@drawable/view_sround_blue_fill"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="84dp">
-                <ImageView
-                    android:padding="8dp"
-                    android:src="@mipmap/ic_launcher"
-                    android:layout_width="84dp"
-                    android:layout_height="84dp"/>
+                android:layout_height="56dp">
                 <TextView
-                    android:textStyle="bold"
-                    android:textSize="24sp"
-                    android:textColor="@color/colorWhite"
-                    android:text="위생등급제 자체 평가하기"
                     android:gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="음식점 위험등급제 관리"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
-            </LinearLayout>
-            <View
-                android:background="#8C7D7D7D"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"/>
-            <ImageView
-                android:id="@+id/button_link_main"
-                android:layout_width="match_parent"
-                android:layout_height="81dp"
-                android:src="@drawable/banner" />
-            <View
-                android:background="#8C7D7D7D"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"/>
-            <TextView
-                android:id="@+id/button_phone_main"
-                android:textSize="24sp"
-                android:textColor="@color/colorBlack"
-                android:background="#DEE6F0"
-                android:gravity="center"
-                android:text="한국위생등급 지원센터\n☎ 02-6949-0226"
-                android:layout_width="match_parent"
-                android:layout_height="84dp"/>
+                <ImageView
+                    android:padding="16dp"
+                    android:id="@+id/button_drawer"
+                    android:src="@drawable/ic_menu"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"/>
+                <LinearLayout
+                    android:id="@+id/button_setting_main"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp">
+                    <ImageView
+                        android:src="@drawable/ic_setting"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:singleLine="true"
+                        android:text="마이페이지"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </RelativeLayout>
             <View
                 android:background="@color/colorGrayDark"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"/>
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:weightSum="3"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="168dp">
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/logo"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="match_parent"/>
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/logo"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="match_parent"/>
+                        <ImageView
+                            android:scaleType="fitXY"
+                            android:src="@drawable/logo"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/button_main"
+                        android:gravity="center"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/view_sround_blue_fill"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="84dp">
+                        <ImageView
+                            android:padding="8dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:layout_width="84dp"
+                            android:layout_height="84dp"/>
+                        <TextView
+                            android:textStyle="bold"
+                            android:textSize="24sp"
+                            android:textColor="@color/colorWhite"
+                            android:text="위생등급제 자체 평가하기"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </LinearLayout>
+                    <View
+                        android:background="#8C7D7D7D"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+                    <ImageView
+                        android:id="@+id/button_link_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="81dp"
+                        android:src="@drawable/banner" />
+                    <View
+                        android:background="#8C7D7D7D"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
+                    <TextView
+                        android:id="@+id/button_phone_main"
+                        android:textSize="24sp"
+                        android:textColor="@color/colorBlack"
+                        android:background="#DEE6F0"
+                        android:gravity="center"
+                        android:text="한국위생등급 지원센터\n☎ 02-6949-0226"
+                        android:layout_width="match_parent"
+                        android:layout_height="84dp"/>
+                    <View
+                        android:background="@color/colorGrayDark"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"/>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+        <include
+            android:id="@+id/drawer"
+            layout="@layout/item_drawer"/>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </LinearLayout>

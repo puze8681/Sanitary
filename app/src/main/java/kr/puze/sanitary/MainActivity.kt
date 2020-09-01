@@ -7,14 +7,19 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_drawer.*
+import kotlinx.android.synthetic.main.item_drawer.view.*
 import kr.puze.sanitary.Adapter.MainRecyclerAdapter
 import kr.puze.sanitary.Data.StoreData
 import kr.puze.sanitary.Setting.InformationActivity
+import kr.puze.sanitary.Setting.TextActivity
 import kr.puze.sanitary.Store.CreateStoreActivity
 import www.okit.co.Utils.PrefUtil
 import www.okit.co.Utils.ToastUtil
@@ -26,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         val mainArray = ArrayList<StoreData>()
         lateinit var mainAdapter: MainRecyclerAdapter
         lateinit var prefUtil: PrefUtil
+        lateinit var firebaseAuth: FirebaseAuth
         private val REQUEST_PERMISSION_CODE = 111
     }
 
@@ -37,9 +43,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun init(){
         prefUtil = PrefUtil(this@MainActivity)
+        firebaseAuth = FirebaseAuth.getInstance()
         checkPermission()
+        button_drawer.setOnClickListener {
+            drawer_main.openDrawer(Gravity.LEFT)
+        }
+        drawer.button_close_drawer.setOnClickListener { drawer_main.closeDrawers() }
+        drawer.button_check_drawer.setOnClickListener { startActivity(Intent(this@MainActivity, InformationActivity::class.java)) }
+        drawer.button_sanitary_drawer.setOnClickListener { openTextActivity(0) }
+        drawer.button_company_drawer.setOnClickListener { openTextActivity(1) }
+        drawer.button_consulting_drawer.setOnClickListener { openTextActivity(2) }
+        drawer.button_logout_drawer.setOnClickListener { logout() }
         button_main.setOnClickListener { startActivity(Intent(this@MainActivity, InformationActivity::class.java)) }
-        button_add_store_main.setOnClickListener { startActivity(Intent(this@MainActivity, CreateStoreActivity::class.java)) }
         button_setting_main.setOnClickListener { startActivity(Intent(this@MainActivity, SettingActivity::class.java)) }
         button_link_main.setOnClickListener {
             val uri: Uri = Uri.parse("https://blog.naver.com/hws4389")
@@ -51,6 +66,18 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(Intent.ACTION_DIAL, uri)
             startActivity(intent)
         }
+    }
+
+    private fun openTextActivity(type: Int){
+        startActivity(Intent(this@MainActivity, TextActivity::class.java).putExtra("type", type))
+    }
+
+    private fun logout(){
+        ToastUtil(this@MainActivity).short("로그아웃")
+        prefUtil.logout()
+        firebaseAuth.signOut()
+        finishAffinity()
+        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
     }
 
     private fun checkPermission() {
@@ -70,6 +97,14 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this@MainActivity, "엑셀 파일을 추출하기 위해 권한을 허용해주세요.", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        if(drawer_main.isDrawerOpen(Gravity.LEFT)){
+            drawer_main.closeDrawers()
+        }else{
+            super.onBackPressed()
         }
     }
 }

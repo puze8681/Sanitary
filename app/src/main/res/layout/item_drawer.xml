@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="left"
+    android:background="@color/colorWhite"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <ImageView
+            android:id="@+id/button_close_drawer"
+            android:padding="8dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_close"
+            android:layout_width="56dp"
+            android:layout_height="56dp"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2e2e2e" />
+    <RelativeLayout
+        android:id="@+id/button_check_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center|left"
+            android:text="평가하기"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2e2e2e" />
+    <RelativeLayout
+        android:id="@+id/button_sanitary_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center|left"
+            android:text="위생등급제란?"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2e2e2e" />
+    <RelativeLayout
+        android:id="@+id/button_company_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center|left"
+            android:text="회사소개"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2e2e2e" />
+    <RelativeLayout
+        android:id="@+id/button_consulting_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center|left"
+            android:text="위생등급제 컨설팅"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2e2e2e" />
+    <RelativeLayout
+        android:id="@+id/button_logout_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center|left"
+            android:text="로그아웃"
+            android:textColor="@color/colorBlack"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#2e2e2e" />
+</LinearLayout>
