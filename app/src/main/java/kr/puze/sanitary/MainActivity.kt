@@ -52,8 +52,6 @@ class MainActivity : AppCompatActivity() {
             drawer_main.openDrawer(Gravity.LEFT)
         }
 
-        image_test.loadSvgOrOthers("https://balzagook.s3.ap-northeast-2.amazonaws.com/stamp/svg/1.svg")
-
         drawer.button_close_drawer.setOnClickListener { drawer_main.closeDrawers() }
         drawer.button_sanitary_drawer.setOnClickListener { openTextActivity(0) }
         drawer.button_company_drawer.setOnClickListener { openTextActivity(1) }
@@ -71,26 +69,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-    private fun ImageView.loadSvgOrOthers(myUrl: String?) {
-        myUrl?.let {
-            if (it.toLowerCase(Locale.ROOT).endsWith("svg")) {
-                val imageLoader = ImageLoader.Builder(this.context)
-                    .componentRegistry {
-                        add(SvgDecoder(this@loadSvgOrOthers.context))
-                    }
-                    .build()
-                val request = LoadRequest.Builder(this.context)
-                    .data(it)
-                    .target(this)
-                    .build()
-                imageLoader.execute(request)
-            } else {
-                this.load(myUrl)
-            }
-        }
-    }
-
 
     private fun openTextActivity(type: Int){
         startActivity(Intent(this@MainActivity, TextActivity::class.java).putExtra("type", type))
