@@ -24,20 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#2e2e2e" />
-    <RelativeLayout
-        android:id="@+id/button_check_drawer"
-        android:layout_width="match_parent"
-        android:layout_height="56dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            android:gravity="center|left"
-            android:text="평가하기"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -99,23 +85,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#2e2e2e" />
-    <RelativeLayout
-        android:id="@+id/button_logout_drawer"
-        android:layout_width="match_parent"
-        android:layout_height="56dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            android:gravity="center|left"
-            android:text="로그아웃"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#2e2e2e" />
 </LinearLayout>

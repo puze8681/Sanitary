@@ -55,11 +55,9 @@ class MainActivity : AppCompatActivity() {
         image_test.loadSvgOrOthers("https://balzagook.s3.ap-northeast-2.amazonaws.com/stamp/svg/1.svg")
 
         drawer.button_close_drawer.setOnClickListener { drawer_main.closeDrawers() }
-        drawer.button_check_drawer.setOnClickListener { startActivity(Intent(this@MainActivity, InformationActivity::class.java)) }
         drawer.button_sanitary_drawer.setOnClickListener { openTextActivity(0) }
         drawer.button_company_drawer.setOnClickListener { openTextActivity(1) }
         drawer.button_consulting_drawer.setOnClickListener { openTextActivity(2) }
-        drawer.button_logout_drawer.setOnClickListener { logout() }
         button_main.setOnClickListener { startActivity(Intent(this@MainActivity, InformationActivity::class.java)) }
         button_setting_main.setOnClickListener { startActivity(Intent(this@MainActivity, SettingActivity::class.java)) }
         button_link_main.setOnClickListener {
