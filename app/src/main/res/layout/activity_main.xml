@@ -92,16 +92,17 @@
                         android:id="@+id/button_main"
                         android:gravity="center"
                         android:layout_margin="8dp"
-                        android:background="@drawable/view_sround_blue_fill"
+                        android:background="@drawable/view_sround_navy_fill"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="84dp">
+
                         <ImageView
                             android:id="@+id/image_test"
-                            android:padding="8dp"
-                            android:src="@drawable/mainhelper"
-                            android:layout_width="84dp"
-                            android:layout_height="84dp"/>
+                            android:layout_width="72dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/main_banner" />
+
                         <TextView
                             android:textStyle="bold"
                             android:textSize="24sp"
