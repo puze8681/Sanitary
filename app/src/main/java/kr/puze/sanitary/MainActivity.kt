@@ -5,24 +5,27 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
-import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import coil.ImageLoader
+import coil.api.load
+import coil.decode.SvgDecoder
+import coil.request.LoadRequest
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_drawer.*
 import kotlinx.android.synthetic.main.item_drawer.view.*
 import kr.puze.sanitary.Adapter.MainRecyclerAdapter
 import kr.puze.sanitary.Data.StoreData
 import kr.puze.sanitary.Setting.InformationActivity
 import kr.puze.sanitary.Setting.TextActivity
-import kr.puze.sanitary.Store.CreateStoreActivity
 import www.okit.co.Utils.PrefUtil
 import www.okit.co.Utils.ToastUtil
+import java.util.*
+import kotlin.collections.ArrayList
 
 @RequiresApi(Build.VERSION_CODES.M)
 class MainActivity : AppCompatActivity() {
@@ -48,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         button_drawer.setOnClickListener {
             drawer_main.openDrawer(Gravity.LEFT)
         }
+
+        image_test.loadSvgOrOthers("https://balzagook.s3.ap-northeast-2.amazonaws.com/stamp/svg/1.svg")
+
         drawer.button_close_drawer.setOnClickListener { drawer_main.closeDrawers() }
         drawer.button_check_drawer.setOnClickListener { startActivity(Intent(this@MainActivity, InformationActivity::class.java)) }
         drawer.button_sanitary_drawer.setOnClickListener { openTextActivity(0) }
@@ -67,6 +73,26 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    private fun ImageView.loadSvgOrOthers(myUrl: String?) {
+        myUrl?.let {
+            if (it.toLowerCase(Locale.ROOT).endsWith("svg")) {
+                val imageLoader = ImageLoader.Builder(this.context)
+                    .componentRegistry {
+                        add(SvgDecoder(this@loadSvgOrOthers.context))
+                    }
+                    .build()
+                val request = LoadRequest.Builder(this.context)
+                    .data(it)
+                    .target(this)
+                    .build()
+                imageLoader.execute(request)
+            } else {
+                this.load(myUrl)
+            }
+        }
+    }
+
 
     private fun openTextActivity(type: Int){
         startActivity(Intent(this@MainActivity, TextActivity::class.java).putExtra("type", type))

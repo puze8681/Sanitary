@@ -23,7 +23,7 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:text="음식점 위험등급제 관리"
+                    android:text="음식점 위생등급제 관리"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
                 <ImageView
@@ -97,6 +97,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="84dp">
                         <ImageView
+                            android:id="@+id/image_test"
                             android:padding="8dp"
                             android:src="@drawable/mainhelper"
                             android:layout_width="84dp"
