@@ -46,7 +46,8 @@ class InformationActivity : AppCompatActivity() {
     private fun getInformationData(){
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
         val reference: DatabaseReference = database.getReference("Stores")
-        reference.child(prefUtil.userUid).addValueEventListener(object :
+        var key = if (prefUtil.isAdmin) "admin" else prefUtil.userUid
+        reference.child(key).addValueEventListener(object :
             ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 ToastUtil(this@InformationActivity).short("데이터 읽기 실패")
@@ -63,7 +64,7 @@ class InformationActivity : AppCompatActivity() {
                 infoArrayList.clear()
                 dataSnapShot.children.forEach{
                     it.getValue(StoreData::class.java)?.let { data ->
-                        infoArrayList.add(InfoData(data.title, data.address, prefUtil.userName, data.storeId))
+                        infoArrayList.add(InfoData(data.title, data.address, data.name, data.storeId))
                     }
                     setRecyclerView(infoArrayList)
                 }

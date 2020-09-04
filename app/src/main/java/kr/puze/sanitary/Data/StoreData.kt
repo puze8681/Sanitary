@@ -8,9 +8,11 @@ data class StoreData(
     var address: String? = "",
     var phone: String? = "",
     var date: String? = "",
-    var storeId: String? = ""
+    var storeId: String? = "",
+    var name: String? = ""
 ) : Parcelable {
     constructor(source: Parcel) : this(
+        source.readString(),
         source.readString(),
         source.readString(),
         source.readString(),
@@ -26,6 +28,7 @@ data class StoreData(
         writeString(phone)
         writeString(date)
         writeString(storeId)
+        writeString(name)
     }
 
     companion object {

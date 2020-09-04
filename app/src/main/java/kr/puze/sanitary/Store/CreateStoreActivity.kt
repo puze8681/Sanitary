@@ -33,8 +33,8 @@ class CreateStoreActivity : AppCompatActivity() {
 
     private fun createStore(title: String, address: String, phone: String, date: String){
         if(title.isNotEmpty() && address.isNotEmpty() && phone.isNotEmpty()){
-            var storeId = UUID.randomUUID().toString()
-            val store = StoreData(title, address, phone, date, storeId)
+            val storeId = UUID.randomUUID().toString()
+            val store = StoreData(title, address, phone, date, storeId, prefUtil.userName)
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val reference: DatabaseReference = database.getReference("Stores")
             reference.child(prefUtil.userUid).child(storeId).setValue(store)

@@ -8,7 +8,6 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_check_common.*
 import kr.puze.sanitary.Data.LogData
 import kr.puze.sanitary.Data.StartCheckData
-import kr.puze.sanitary.Data.StoreData
 import kr.puze.sanitary.R
 import www.okit.co.Utils.DialogUtil
 import www.okit.co.Utils.PrefUtil

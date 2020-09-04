@@ -7,32 +7,21 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import coil.ImageLoader
-import coil.api.load
-import coil.decode.SvgDecoder
-import coil.request.LoadRequest
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_drawer.view.*
-import kr.puze.sanitary.Adapter.MainRecyclerAdapter
-import kr.puze.sanitary.Data.StoreData
 import kr.puze.sanitary.Setting.InformationActivity
 import kr.puze.sanitary.Setting.TextActivity
 import www.okit.co.Utils.PrefUtil
 import www.okit.co.Utils.ToastUtil
-import java.util.*
-import kotlin.collections.ArrayList
 
 @RequiresApi(Build.VERSION_CODES.M)
 class MainActivity : AppCompatActivity() {
 
     companion object{
-        val mainArray = ArrayList<StoreData>()
-        lateinit var mainAdapter: MainRecyclerAdapter
         lateinit var prefUtil: PrefUtil
         lateinit var firebaseAuth: FirebaseAuth
         private val REQUEST_PERMISSION_CODE = 111
