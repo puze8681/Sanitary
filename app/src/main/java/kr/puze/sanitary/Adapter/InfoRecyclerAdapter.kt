@@ -2,6 +2,7 @@ package kr.puze.sanitary.Adapter
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,14 @@ class InfoRecyclerAdapter(var uid: String, var items: ArrayList<InfoData>, var c
         holder.bind(items[position], position)
         holder.itemView.setOnClickListener {
             itemClick?.onItemClick(holder.itemView, position)
+        }
+
+        holder.itemView.text_phone_info.setOnClickListener {
+            if(items[position].phone != ""){
+                var uri: Uri = Uri.parse("tel:${items[position].phone}")
+                var intent = Intent(Intent.ACTION_DIAL, uri)
+                context.startActivity(intent)
+            }
         }
 
         holder.itemView.button_delete_info.setOnClickListener {

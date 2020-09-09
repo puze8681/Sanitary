@@ -7,9 +7,11 @@ data class InfoData(
     var title: String? = "",
     var address: String? = "",
     var name: String? = "",
+    var phone: String? = "",
     var id: String? = ""
 ) : Parcelable {
     constructor(source: Parcel) : this(
+        source.readString(),
         source.readString(),
         source.readString(),
         source.readString(),
@@ -22,6 +24,7 @@ data class InfoData(
         writeString(title)
         writeString(address)
         writeString(name)
+        writeString(phone)
         writeString(id)
     }
 

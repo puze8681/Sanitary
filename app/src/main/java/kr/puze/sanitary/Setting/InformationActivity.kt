@@ -52,11 +52,11 @@ class InformationActivity : AppCompatActivity() {
             override fun onCancelled(p0: DatabaseError) {
                 ToastUtil(this@InformationActivity).short("데이터 읽기 실패")
                 infoArrayList.clear()
-                infoArrayList.add(InfoData("매장이름 1", "주소 1", "대표자1", "abc"))
-                infoArrayList.add(InfoData("매장이름 2", "주소 2", "대표자2", "bcd"))
-                infoArrayList.add(InfoData("매장이름 3", "주소 3", "대표자3", "cde"))
-                infoArrayList.add(InfoData("매장이름 4", "주소 4", "대표자4", "def"))
-                infoArrayList.add(InfoData("매장이름 5", "주소 5", "대표자5", "efg"))
+                infoArrayList.add(InfoData("매장이름 1", "주소 1", "대표자1", "010-1234-1234","abc"))
+                infoArrayList.add(InfoData("매장이름 2", "주소 2", "대표자2", "010-1234-1234", "bcd"))
+                infoArrayList.add(InfoData("매장이름 3", "주소 3", "대표자3", "010-1234-1234", "cde"))
+                infoArrayList.add(InfoData("매장이름 4", "주소 4", "대표자4", "010-1234-1234", "def"))
+                infoArrayList.add(InfoData("매장이름 5", "주소 5", "대표자5", "010-1234-1234", "efg"))
                 setRecyclerView(infoArrayList)
             }
 
@@ -64,7 +64,7 @@ class InformationActivity : AppCompatActivity() {
                 infoArrayList.clear()
                 dataSnapShot.children.forEach{
                     it.getValue(StoreData::class.java)?.let { data ->
-                        infoArrayList.add(InfoData(data.title, data.address, data.name, data.storeId))
+                        infoArrayList.add(InfoData(data.title, data.address, data.name, data.phone, data.storeId))
                     }
                     setRecyclerView(infoArrayList)
                 }
